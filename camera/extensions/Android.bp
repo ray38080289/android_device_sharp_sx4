@@ -1,0 +1,23 @@
+//
+// SPDX-FileCopyrightText: The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+// CameraX / Camera2 vendor extensions: the AOSP sample with Night replaced by
+// the HAL's Sharp super night mode. Every other mode stays unavailable, as on stock.
+java_library {
+    name: "androidx.camera.extensions.impl.sx4",
+    installable: true,
+    srcs: ["src/**/*.java"],
+    // Our classes come first, so they replace the sample Night extenders.
+    static_libs: ["androidx.camera.extensions.impl"],
+    sdk_version: "current",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "androidx.camera.extensions.impl.sx4.xml",
+    src: "androidx.camera.extensions.impl.xml",
+    sub_dir: "permissions",
+    vendor: true,
+}

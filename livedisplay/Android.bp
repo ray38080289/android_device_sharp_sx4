@@ -1,0 +1,23 @@
+//
+// SPDX-FileCopyrightText: The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_binary {
+    name: "vendor.lineage.livedisplay-service.sx4",
+    vendor: true,
+    relative_install_path: "hw",
+    init_rc: ["vendor.lineage.livedisplay-service.sx4.rc"],
+    vintf_fragments: ["vendor.lineage.livedisplay-service.sx4.xml"],
+    srcs: [
+        "DisplayModes.cpp",
+        "PictureQuality.cpp",
+        "SunlightEnhancement.cpp",
+        "service.cpp",
+    ],
+    shared_libs: [
+        "libbase",
+        "libbinder_ndk",
+        "vendor.lineage.livedisplay-V1-ndk",
+    ],
+}

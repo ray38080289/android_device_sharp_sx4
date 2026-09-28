@@ -126,6 +126,10 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.vulkan.deqp.level-2024-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.vulkan.deqp.level.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml
 
+# LiveDisplay (Sharp image quality modes + outdoor view over the MTK PQ HAL)
+PRODUCT_PACKAGES += \
+    vendor.lineage.livedisplay-service.sx4
+
 # Recovery (USB gadget on musb-hdrc; same as stock / xelex/Q25)
 PRODUCT_PACKAGES += \
     init.recovery.mt6833.rc

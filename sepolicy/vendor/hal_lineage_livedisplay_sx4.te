@@ -1,0 +1,13 @@
+type hal_lineage_livedisplay_sx4, domain;
+hal_server_domain(hal_lineage_livedisplay_sx4, hal_lineage_livedisplay)
+
+type hal_lineage_livedisplay_sx4_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(hal_lineage_livedisplay_sx4)
+
+binder_call(hal_lineage_livedisplay_sx4, servicemanager)
+
+# Picture mode and AAL function go through the MTK PQ HAL
+hal_client_domain(hal_lineage_livedisplay_sx4, hal_mtk_pq)
+
+# persist.vendor.sys.pq.picmode, persist.vendor.sys.mtkaal.function
+get_prop(hal_lineage_livedisplay_sx4, vendor_mtk_pq_prop)

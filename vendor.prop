@@ -583,7 +583,6 @@ vendor.bluetooth.ldac.abr=true
 vendor.boostfwk.scroll.interrupt.touchboost=1
 vendor.boostfwk.scroll.policy.mode=1
 vendor.boostfwk.version=2
-vendor.camera.aux.packagelist=jp.co.sharp.android.camera,com.mediatek.camera
 vendor.camera.mdp.cz.enable=1
 vendor.camera.mdp.dre.enable=1
 vendor.camera.mdp.hfg.enable=1

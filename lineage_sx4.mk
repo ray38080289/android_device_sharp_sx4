@@ -20,5 +20,5 @@ PRODUCT_BRAND := SHARP
 PRODUCT_MODEL := AQUOS wish4
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    BuildFingerprint=SHARP/SX4/SX4:15/AP3A.240905.015.A2/00WW_3_20A000:user/release-keys \
+    BuildFingerprint=SHARP/SX4/SX4:15/AP3A.240905.015.A2/00WW_3_20C000:user/release-keys \
     DeviceProduct=SX4

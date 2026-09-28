@@ -64,7 +64,7 @@ ro.vendor.mtk_model=0
 ro.vendor.mtk_flv_playback_support=1
 ro.vendor.mtk_omacp_support=1
 
-# Stock vendor/odm build.prop (SX4 00WW_3_20A000), minus build ids,
+# Stock vendor/odm build.prop (SX4 00WW_3_20C000), minus build ids,
 # ro.boot.*, ro.virtual_ab.* and privapp enforcement; see preflash D.
 aaudio.mmap_exclusive_policy=2
 aaudio.mmap_policy=2

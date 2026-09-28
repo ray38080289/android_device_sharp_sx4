@@ -199,6 +199,16 @@ $(call soong_config_set_bool,mediatek_wifi_hal,use_pre_baklava_qpr0_struct,true)
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/init.sx4.debug.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.sx4.debug.rc
 
+# Audio policy engine (volume groups, stream volume ranges). Stock ships these in
+# /system_ext/etc (00WW_3_20C000); AOSP only searches /odm, /vendor and /system, and
+# without them the built-in defaults give 15 in-call / 8 system volume steps instead
+# of stock's 5 / 16.
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/audio/audio_policy_engine_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_engine_configuration.xml \
+    $(LOCAL_PATH)/configs/audio/audio_policy_engine_default_stream_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_engine_default_stream_volumes.xml \
+    $(LOCAL_PATH)/configs/audio/audio_policy_engine_product_strategies.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_engine_product_strategies.xml \
+    $(LOCAL_PATH)/configs/audio/audio_policy_engine_stream_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_engine_stream_volumes.xml
+
 # AOSP audio effect libraries stock ships in /vendor/lib*/soundfx (loaded by the
 # stock MediaTek AIDL effect HAL via audio_effects_config.xml). The aec/agc/ns/
 # pre_processing ones are unreferenced there (config uses the *_mtk blobs) but

@@ -4,8 +4,8 @@
 |---|---|
 | SoC | MediaTek MT6833 (Dimensity 700) |
 | Codename | `sx4` (stock `ro.product.device=SX4`) |
-| Stock vendor | `SHARP/SX4/SX4:15/AP3A.240905.015.A2/00WW_3_20A000` |
-| Stock system | `AquosMTK:16/SB385/03.00.07` |
+| Stock vendor | `SHARP/SX4/SX4:15/AP3A.240905.015.A2/00WW_3_20C000` |
+| Stock system | `AquosMTK:16/SB387/03.00.08` |
 | Kernel | GKI 6.6.118 (`android15-8`), boot/vendor_boot/init_boot header v4 |
 | Partitions | Virtual A/B, super 8 GiB, vbmeta chain: vbmeta_system(2) / boot(3) / vbmeta_vendor(4) |
 

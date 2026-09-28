@@ -1,4 +1,4 @@
-# Firmware - from SHARP/SX4/SX4:15/AP3A.240905.015.A2/00WW_3_20A000:user/release-keys
+# Firmware - from SHARP/SX4/SX4:15/AP3A.240905.015.A2/00WW_3_20C000:user/release-keys
 # TODO(stage 2): pin hashes after confirming this is the firmware on both slots.
 
 dpm.img;AB

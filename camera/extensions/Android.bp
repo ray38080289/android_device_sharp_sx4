@@ -3,9 +3,9 @@
 // SPDX-License-Identifier: Apache-2.0
 //
 
-// CameraX / Camera2 vendor extensions: the AOSP sample with Night replaced by
-// the HAL's Sharp super night mode, and the sample's placeholder Bokeh / HDR
-// turned off. Night is the only mode, as on stock.
+// CameraX / Camera2 vendor extensions: the AOSP sample with Night, HDR and Auto
+// replaced by the Sharp camera HAL's super night, HDR and both (what the stock
+// camera uses), and the sample's placeholder Bokeh turned off.
 java_library {
     name: "androidx.camera.extensions.impl.sx4",
     installable: true,

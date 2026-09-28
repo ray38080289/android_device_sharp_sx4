@@ -5,5 +5,8 @@
 
 package androidx.camera.extensions.impl;
 
-/** Not offered on this device (stock disables it too). */
-public final class HdrImageCaptureExtenderImpl extends UnavailableImageCaptureExtender {}
+public final class HdrImageCaptureExtenderImpl extends SharpImageCaptureExtender {
+    public HdrImageCaptureExtenderImpl() {
+        super(SharpFeature.HDR);
+    }
+}

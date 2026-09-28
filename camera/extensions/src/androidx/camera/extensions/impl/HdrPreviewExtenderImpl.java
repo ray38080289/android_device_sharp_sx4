@@ -5,5 +5,8 @@
 
 package androidx.camera.extensions.impl;
 
-/** Not offered on this device (stock disables it too). */
-public final class HdrPreviewExtenderImpl extends UnavailablePreviewExtender {}
+public final class HdrPreviewExtenderImpl extends SharpPreviewExtender {
+    public HdrPreviewExtenderImpl() {
+        super(SharpFeature.HDR);
+    }
+}

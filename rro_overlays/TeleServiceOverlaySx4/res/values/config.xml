@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<!-- Values from stock TelephonyOverlayStaticsSh (AOSP TeleService keys only) -->
+<resources>
+    <bool name="world_phone">true</bool>
+    <bool name="csp_enabled">true</bool>
+    <bool name="dtmf_type_enabled">true</bool>
+    <bool name="send_mic_mute_to_AudioManager">true</bool>
+    <bool name="config_support_rtt">true</bool>
+    <integer name="OtaShowListeningScreen">1</integer>
+</resources>

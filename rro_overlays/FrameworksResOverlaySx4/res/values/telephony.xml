@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<!-- Telephony values from the stock framework-res overlays that genoverlay23 does not
+     carry (AOSP keys only; MediaTek-only keys have no reader on LineageOS). -->
+<resources>
+    <bool name="config_enableNewAutoSelectNetworkUI">true</bool>
+    <string name="config_mms_user_agent" translatable="false">Android-Mms/0.1</string>
+    <string name="config_mms_user_agent_profile_url" translatable="false">http://www.google.com/oha/rdf/ua-profile-kila.xml</string>
+</resources>

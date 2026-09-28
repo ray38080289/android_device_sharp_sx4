@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<!-- Same as stock /system_ext/etc/sysconfig/com.android.phone.config.xml: lets the phone
+     process use location during emergency calls even with location turned off. -->
+<config>
+    <allow-ignore-location-settings package="com.android.phone" attributionTag="*" />
+</config>

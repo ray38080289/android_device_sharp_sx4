@@ -8,5 +8,6 @@
     <overlay
         android:isStatic="true"
         android:priority="200"
+        android:targetName="CellBroadcastCustomization"
         android:targetPackage="com.android.cellbroadcastreceiver.module" />
 </manifest>

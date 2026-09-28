@@ -9,6 +9,9 @@ ro.board.api_level=30
 
 # TODO(stage 1): carry over the remaining stock /vendor/build.prop properties.
 
+# Camera extensions (camera/extensions); stock sets this too
+ro.camerax.extensions.enabled=true
+
 # Radio / IMS (from stock /vendor/build.prop)
 persist.vendor.ims_support=1
 persist.vendor.mims_support=2

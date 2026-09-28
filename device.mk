@@ -1,0 +1,239 @@
+#
+# SPDX-FileCopyrightText: The LineageOS Project
+# SPDX-License-Identifier: Apache-2.0
+#
+
+# Installs gsi keys into ramdisk, to boot a developer GSI with verified boot.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
+
+# Project ID Quota
+$(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
+
+# Enforce generic ramdisk allow list
+$(call inherit-product, $(SRC_TARGET_DIR)/product/generic_ramdisk.mk)
+
+# A/B
+$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_vendor_ramdisk.mk)
+
+PRODUCT_PACKAGES += \
+    android.hardware.boot-service.default_recovery \
+    com.android.hardware.boot
+
+PRODUCT_PACKAGES += \
+    update_engine \
+    update_engine_sideload \
+    update_verifier
+
+PRODUCT_PACKAGES_DEBUG += \
+    update_engine_client
+
+AB_OTA_POSTINSTALL_CONFIG += \
+    RUN_POSTINSTALL_system=true \
+    POSTINSTALL_PATH_system=system/bin/otapreopt_script \
+    FILESYSTEM_TYPE_system=ext4 \
+    POSTINSTALL_OPTIONAL_system=true
+
+AB_OTA_POSTINSTALL_CONFIG += \
+    RUN_POSTINSTALL_vendor=true \
+    POSTINSTALL_PATH_vendor=bin/checkpoint_gc \
+    FILESYSTEM_TYPE_vendor=ext4 \
+    POSTINSTALL_OPTIONAL_vendor=true
+
+PRODUCT_PACKAGES += \
+    checkpoint_gc \
+    otapreopt_script
+
+# AAPT
+PRODUCT_AAPT_CONFIG := normal
+PRODUCT_AAPT_PREF_CONFIG := hdpi
+
+# Dynamic Partitions
+PRODUCT_USE_DYNAMIC_PARTITIONS := true
+PRODUCT_BUILD_SUPER_PARTITION := false
+
+PRODUCT_PACKAGES += \
+    fastbootd
+
+# Fstab
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/etc/fstab.mt6833:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.mt6833 \
+    $(LOCAL_PATH)/rootdir/etc/fstab.mt6833:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.mt6833
+
+# IMS (same approach as device/xelex/Q25: stock ImsService + ims-patches,
+# two stock BOOT_JARs, minimal rebuilt MediaTek framework jars)
+$(call inherit-product, hardware/lineage/compat/frameworks/compat.mk)
+$(call inherit-product, hardware/mediatek/frameworks/mediatek-frameworks.mk)
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/permissions/privapp-permissions-com.mediatek.ims.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-com.mediatek.ims.xml \
+    $(LOCAL_PATH)/configs/permissions/privapp-permissions-com.mediatek.telephony.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-com.mediatek.telephony.xml
+
+# Overlays
+$(call inherit-product, hardware/mediatek/overlay/mssi.mk)
+
+# FrameworksResOverlaySx4 values are generated from the stock product overlays by
+# genoverlay23.py (navbar, cutout, brightness curves, power_profile, IMS flags...)
+PRODUCT_PACKAGES += \
+    FrameworksResOverlaySx4 \
+    SettingsOverlaySx4 \
+    SettingsProviderOverlaySx4 \
+    SystemUIOverlaySx4
+
+PRODUCT_ENFORCE_RRO_TARGETS := *
+
+# Permissions (mirrors the feature set declared by stock /vendor/etc/permissions)
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.audio.low_latency.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.audio.low_latency.xml \
+    frameworks/native/data/etc/android.hardware.bluetooth.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth.xml \
+    frameworks/native/data/etc/android.hardware.bluetooth_le.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth_le.xml \
+    frameworks/native/data/etc/android.hardware.camera.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.xml \
+    frameworks/native/data/etc/android.hardware.faketouch.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.faketouch.xml \
+    frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.fingerprint.xml \
+    frameworks/native/data/etc/android.hardware.keystore.app_attest_key.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.keystore.app_attest_key.xml \
+    frameworks/native/data/etc/android.hardware.location.gps.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.location.gps.xml \
+    frameworks/native/data/etc/android.hardware.nfc.hce.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.hce.xml \
+    frameworks/native/data/etc/android.hardware.nfc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.xml \
+    frameworks/native/data/etc/android.hardware.opengles.aep.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.opengles.aep.xml \
+    frameworks/native/data/etc/android.hardware.se.omapi.ese.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.se.omapi.ese.xml \
+    frameworks/native/data/etc/android.hardware.se.omapi.uicc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.se.omapi.uicc.xml \
+    frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.accelerometer.xml \
+    frameworks/native/data/etc/android.hardware.sensor.compass.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.compass.xml \
+    frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.gyroscope.xml \
+    frameworks/native/data/etc/android.hardware.sensor.light.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.light.xml \
+    frameworks/native/data/etc/android.hardware.sensor.proximity.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.proximity.xml \
+    frameworks/native/data/etc/android.hardware.sensor.stepcounter.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.stepcounter.xml \
+    frameworks/native/data/etc/android.hardware.sensor.stepdetector.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.stepdetector.xml \
+    frameworks/native/data/etc/android.hardware.telephony.euicc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.euicc.xml \
+    frameworks/native/data/etc/android.hardware.telephony.gsm.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.gsm.xml \
+    frameworks/native/data/etc/android.hardware.telephony.ims.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.ims.xml \
+    frameworks/native/data/etc/android.hardware.touchscreen.multitouch.distinct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.touchscreen.multitouch.distinct.xml \
+    frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
+    frameworks/native/data/etc/android.hardware.touchscreen.multitouch.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.touchscreen.multitouch.xml \
+    frameworks/native/data/etc/android.hardware.touchscreen.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.touchscreen.xml \
+    frameworks/native/data/etc/android.hardware.usb.accessory.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.accessory.xml \
+    frameworks/native/data/etc/android.hardware.usb.host.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.host.xml \
+    frameworks/native/data/etc/android.hardware.vulkan.compute-0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.compute.xml \
+    frameworks/native/data/etc/android.hardware.vulkan.level-1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.level.xml \
+    frameworks/native/data/etc/android.hardware.vulkan.version-1_3.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.version.xml \
+    frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml \
+    frameworks/native/data/etc/android.hardware.wifi.passpoint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.passpoint.xml \
+    frameworks/native/data/etc/android.hardware.wifi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.xml \
+    frameworks/native/data/etc/android.software.ipsec_tunnels.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.ipsec_tunnels.xml \
+    frameworks/native/data/etc/android.software.midi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.midi.xml \
+    frameworks/native/data/etc/android.software.opengles.deqp.level-2024-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.opengles.deqp.level.xml \
+    frameworks/native/data/etc/android.software.verified_boot.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.verified_boot.xml \
+    frameworks/native/data/etc/android.software.vulkan.deqp.level-2024-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.vulkan.deqp.level.xml \
+    frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml
+
+# Recovery (USB gadget on musb-hdrc; same as stock / xelex/Q25)
+PRODUCT_PACKAGES += \
+    init.recovery.mt6833.rc
+
+# RIL
+ENABLE_VENDOR_RIL_SERVICE := true
+
+# Shipping API level (ro.product.first_api_level=34 on stock)
+PRODUCT_SHIPPING_API_LEVEL := 34
+
+# Soong namespaces
+# hardware/google/* are imported by hardware/mediatek (thermal HAL links
+# pixel-power-ext / pixelatoms); exporting them lets Make install those libs
+PRODUCT_SOONG_NAMESPACES += \
+    $(LOCAL_PATH) \
+    hardware/google/interfaces \
+    hardware/google/pixel \
+    hardware/mediatek \
+    hardware/mediatek/libmtkperf_client
+
+# HALs rebuilt from source. The stock binaries collide with platform module
+# names, so extraction drops them (and their rc/VINTF) and these replace them.
+# Everything else in /vendor/bin/hw stays a stock blob for stage 1.
+PRODUCT_PACKAGES += \
+    android.hardware.bluetooth.audio-impl \
+    android.hardware.contexthub-service.tinysys \
+    android.hardware.drm-service.clearkey \
+    android.hardware.health-service.mediatek \
+    android.hardware.health-service.mediatek-recovery \
+    android.hardware.nfc-service.nxp \
+    android.hardware.secure_element-service.nxp \
+    android.hardware.sensors-service.multihal \
+    android.hardware.wifi-service-lazy \
+    audio.bluetooth.default \
+    chipinfo \
+    wlan_assistant \
+    audio.r_submix.default \
+    audio.usb.default \
+    hostapd \
+    libperfctl_vendor \
+    libpowerhalwrap_vendor \
+    pixel-power-ext-V1-ndk \
+    pixelatoms-cpp \
+    vndservicemanager \
+    wpa_supplicant
+
+# Wi-Fi vendor HAL: the rebuilt wifi service links libwifi-hal-fallback, so the
+# stock MTK legacy HAL (blob renamed libwifi-hal-mtk.so) is reached through
+# libwifi-hal-wrapper's /vendor/etc/wifi/vendor_hals entry. Same as
+# motorola/mt6768-common; stock blob is A15, i.e. pre-Baklava structs.
+PRODUCT_PACKAGES += \
+    libwifi-hal-wrapper
+$(call soong_config_set_bool,mediatek_wifi_hal,use_pre_baklava_qpr0_struct,true)
+
+# DEBUG(bring-up): dumps dmesg/logcat to /metadata/sx4dbg so a hang can be read
+# back over BROM. Remove together with the BoardConfig debug cmdline.
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/etc/init.sx4.debug.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.sx4.debug.rc
+
+# AOSP audio effect libraries stock ships in /vendor/lib*/soundfx (loaded by the
+# stock MediaTek AIDL effect HAL via audio_effects_config.xml). The aec/agc/ns/
+# pre_processing ones are unreferenced there (config uses the *_mtk blobs) but
+# stock installs them, so keep parity. libspatializeraidl: referenced, absent on stock.
+PRODUCT_PACKAGES += \
+    libaecsw \
+    libagc1sw \
+    libagc2sw \
+    libbassboostsw \
+    libbundleaidl \
+    libdownmixaidl \
+    libdynamicsprocessingaidl \
+    libequalizersw \
+    libextensioneffect \
+    libhapticgeneratoraidl \
+    libloudnessenhanceraidl \
+    libnssw \
+    libpreprocessingaidl \
+    libpresetreverbsw \
+    libreverbaidl \
+    libvirtualizersw \
+    libvisualizeraidl \
+    libvolumesw
+
+# Charging control (bypass / toggle), on the node Sharp's direct charge used.
+# Measured on stock: "0 0" = charge battery, "0 1" = charger powers the device only.
+PRODUCT_PACKAGES += \
+    vendor.lineage.health-service.default
+
+$(call soong_config_set,lineage_health,charging_control_charging_path,/sys/devices/platform/charger/oem_enable_charging)
+$(call soong_config_set,lineage_health,charging_control_charging_enabled,0 0)
+$(call soong_config_set,lineage_health,charging_control_charging_disabled,0 1)
+
+# hardware/mediatek HALs, same set as motorola/mt6768-common (also 6.6 GKI)
+PRODUCT_PACKAGES += \
+    android.hardware.memtrack-service.mediatek \
+    android.hardware.thermal-service.mediatek \
+    android.hardware.vibrator-service.mediatek
+
+# thermal_info_config.json: from mt6768-common. Sensor zones and cooling
+# devices verified on the device (MT6833 GPU is devfreq-13000000.mali; a
+# missing cdev makes the HAL abort and system_server watchdog-loop).
+# Thresholds checked against what the stock HAL reports (baseline_SB385/hw.txt):
+# CPU/SOC/BATTERY/PA match; SKIN set to stock's (mt6768 started at 43C).
+# TODO: stock also reports GPU/NPU/TPU (85/90/100/117); zone mapping unknown.
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/thermal/thermal_info_config.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config.json
+
+# TODO(stage 1): check which of the above need soong config (NXP NFC chip
+# variant, Wi-Fi HAL flavour) once lineage-23.2 has synced.
+
+# Inherit the proprietary files
+$(call inherit-product, vendor/sharp/sx4/sx4-vendor.mk)

@@ -1,0 +1,14 @@
+# DEBUG(bring-up): snapshot logs every 10s to /metadata (ext4, unencrypted,
+# readable from a BROM readback) and, once /data is up, to /data/local/tmp
+# (readable with a plain adb shell). Needs the permissive debug vendor_boot.
+on post-fs
+    mkdir /metadata/sx4dbg 0770 root root
+    start sx4dbg
+
+# init expands $name / ${name} as properties in service args; $$ is a literal $
+service sx4dbg /system/bin/sh -c "while true; do for d in /metadata/sx4dbg /data/local/tmp/sx4dbg; do [ -d $${d%/*} ] || continue; mkdir -p $$d; chmod 0755 $$d; dmesg > $$d/dmesg.txt; logcat -d -b all -t 20000 > $$d/logcat.txt; getprop > $$d/props.txt; ps -A -o PID,STAT,WCHAN:24,NAME > $$d/ps.txt; chmod 0644 $$d/*; done; sync; sleep 10; done"
+    user root
+    group root log readproc
+    seclabel u:r:su:s0
+    disabled
+    oneshot

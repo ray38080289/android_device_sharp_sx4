@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    SPDX-FileCopyrightText: The LineageOS Project
+    SPDX-License-Identifier: Apache-2.0
+
+    Hand-written (not generated): LOS-side display settings with no stock equivalent.
+    Stock capped 60 Hz with Sharp's own config_limitRefreshRate + high-speed display app.
+-->
+<resources>
+    <!-- 0: no fixed default vote (AOSP's 60 made Smooth display a no-op, votes are
+         intersected); the peak value below acts as the default instead. -->
+    <integer name="config_defaultRefreshRate">0</integer>
+    <!-- Panel does 60/90 Hz. Default 60 like stock; Smooth display raises it to 90. -->
+    <integer name="config_defaultPeakRefreshRate">60</integer>
+</resources>

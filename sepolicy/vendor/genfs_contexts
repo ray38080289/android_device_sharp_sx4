@@ -1,0 +1,1 @@
+genfscon sysfs /devices/platform/charger/oem_enable_charging u:object_r:sysfs_charging_control:s0

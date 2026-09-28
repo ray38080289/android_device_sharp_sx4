@@ -1,0 +1,10 @@
+#
+# SPDX-FileCopyrightText: The LineageOS Project
+# SPDX-License-Identifier: Apache-2.0
+#
+
+# IMS
+# Stock gets VoLTE availability from the modem (MtkImsManager, IMS config
+# key 68); AOSP ImsManager has no such path, so override like device/xelex/Q25.
+persist.dbg.volte_avail_ovr=1
+persist.dbg.wfc_avail_ovr=1

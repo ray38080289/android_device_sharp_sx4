@@ -1,0 +1,1 @@
+type sysfs_charging_control, sysfs_type, fs_type;

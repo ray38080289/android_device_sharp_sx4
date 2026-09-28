@@ -1,0 +1,10 @@
+# Stock SX4 binary names that sepolicy_vndr's patterns miss (e.g. it has
+# bluetooth-service.mediatek, stock ships bluetooth-service-mediatek). Types
+# are sepolicy_vndr's; each one matches the label stock gives the same file.
+/vendor/bin/hw/android\.hardware\.bluetooth-service-mediatek                 u:object_r:mtk_hal_bluetooth_exec:s0
+/vendor/bin/hw/android\.hardware\.media\.c2-mediatek                          u:object_r:mtk_hal_c2_exec:s0
+/vendor/bin/hw/android\.hardware\.neuralnetworks-shim-service-mtk-legacy      u:object_r:mtk_hal_neuralnetworks_exec:s0
+/vendor/bin/hw/android\.hardware\.usb-aidl-service\.mediatekv1\.0             u:object_r:mtk_hal_usb_exec:s0
+/vendor/bin/hw/android\.hardware\.usb\.gadget-aidl-service\.mediatekv1\.0     u:object_r:mtk_hal_usb_exec:s0
+/vendor/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.fpc   u:object_r:hal_fingerprint_default_exec:s0
+/vendor/bin/hw/android\.hardware\.dumpstate-service\.fih                      u:object_r:hal_dumpstate_default_exec:s0

@@ -1,1 +1,6 @@
+#
+# SPDX-FileCopyrightText: The LineageOS Project
+# SPDX-License-Identifier: Apache-2.0
+#
+
 allow hal_lineage_health_default sysfs_charging_control:file rw_file_perms;

@@ -1,3 +1,8 @@
+#
+# SPDX-FileCopyrightText: The LineageOS Project
+# SPDX-License-Identifier: Apache-2.0
+#
+
 # Vendor AIDs from stock /vendor/etc/group and /vendor/etc/passwd
 
 [AID_VENDOR_FCCENPON]

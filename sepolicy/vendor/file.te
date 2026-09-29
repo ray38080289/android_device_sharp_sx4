@@ -1,1 +1,6 @@
+#
+# SPDX-FileCopyrightText: The LineageOS Project
+# SPDX-License-Identifier: Apache-2.0
+#
+
 type sysfs_charging_control, sysfs_type, fs_type;

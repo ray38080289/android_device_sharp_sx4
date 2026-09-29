@@ -1,3 +1,8 @@
+#
+# SPDX-FileCopyrightText: The LineageOS Project
+# SPDX-License-Identifier: Apache-2.0
+#
+
 type hal_lineage_livedisplay_sx4, domain;
 hal_server_domain(hal_lineage_livedisplay_sx4, hal_lineage_livedisplay)
 

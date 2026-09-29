@@ -1,3 +1,8 @@
+#
+# SPDX-FileCopyrightText: The LineageOS Project
+# SPDX-License-Identifier: Apache-2.0
+#
+
 # Stock SX4 binary names that sepolicy_vndr's patterns miss (e.g. it has
 # bluetooth-service.mediatek, stock ships bluetooth-service-mediatek). Types
 # are sepolicy_vndr's; each one matches the label stock gives the same file.

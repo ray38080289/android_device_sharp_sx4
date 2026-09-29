@@ -1,3 +1,8 @@
+#
+# SPDX-FileCopyrightText: The LineageOS Project
+# SPDX-License-Identifier: Apache-2.0
+#
+
 # DEBUG(bring-up): snapshot logs every 10s to /metadata (ext4, unencrypted,
 # readable from a BROM readback) and, once /data is up, to /data/local/tmp
 # (readable with a plain adb shell). Needs the permissive debug vendor_boot.

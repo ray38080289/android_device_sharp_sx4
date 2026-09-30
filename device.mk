@@ -141,6 +141,10 @@ PRODUCT_PACKAGES += \
     androidx.camera.extensions.impl.sx4 \
     androidx.camera.extensions.impl.sx4.xml
 
+# Linker: the Widevine vendor APEX loads liboemcrypto.so from vendor (same as stock)
+PRODUCT_VENDOR_LINKER_CONFIG_FRAGMENTS += \
+    $(LOCAL_PATH)/configs/linker.config.json
+
 # LiveDisplay (Sharp image quality modes + outdoor view over the MTK PQ HAL)
 PRODUCT_PACKAGES += \
     vendor.lineage.livedisplay-service.sx4

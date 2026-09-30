@@ -141,6 +141,10 @@ PRODUCT_PACKAGES += \
     androidx.camera.extensions.impl.sx4 \
     androidx.camera.extensions.impl.sx4.xml
 
+# Camera: stub for the Megvii face landmark library (not shippable)
+PRODUCT_PACKAGES += \
+    libAncDlmk
+
 # Linker: the Widevine vendor APEX loads liboemcrypto.so from vendor (same as stock)
 PRODUCT_VENDOR_LINKER_CONFIG_FRAGMENTS += \
     $(LOCAL_PATH)/configs/linker.config.json

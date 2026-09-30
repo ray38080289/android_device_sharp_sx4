@@ -1945,7 +1945,6 @@ vendor/lib64/libANCBeauty.so
 vendor/lib64/libAVCSecureVencCA.so
 vendor/lib64/libAncBeautify-hal.so
 vendor/lib64/libAncBeautifyImage.so
-vendor/lib64/libAncDlmk.so
 vendor/lib64/libDR.so
 vendor/lib64/libDefaultFpsActor.so
 vendor/lib64/libFrameRecord.so

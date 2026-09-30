@@ -73,13 +73,6 @@ BOARD_MKBOOTIMG_INIT_ARGS += --header_version $(BOARD_INIT_BOOT_HEADER_VERSION)
 
 BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2
 
-# DEBUG(bring-up): permissive to rule out sepolicy. Remove once it boots.
-# On the kernel cmdline: Sharp's LK builds its own bootconfig and drops the
-# vendor_boot one (measured: vendor_boot bootconfig had it, device ran enforcing).
-# (hung_task_panic dropped: MTK mivr_thread sleeps >120s by design and the
-# panic killed an OTA mid-install.)
-BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
-
 # Bootloader
 BOARD_VENDOR := sharp
 TARGET_BOOTLOADER_BOARD_NAME := mt6833

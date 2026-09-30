@@ -215,11 +215,6 @@ PRODUCT_PACKAGES += \
     libwifi-hal-wrapper
 $(call soong_config_set_bool,mediatek_wifi_hal,use_pre_baklava_qpr0_struct,true)
 
-# DEBUG(bring-up): dumps dmesg/logcat to /metadata/sx4dbg so a hang can be read
-# back over BROM. Remove together with the BoardConfig debug cmdline.
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/init.sx4.debug.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.sx4.debug.rc
-
 # AOSP audio effect libraries stock ships in /vendor/lib*/soundfx (loaded by the
 # stock MediaTek AIDL effect HAL via audio_effects_config.xml). The aec/agc/ns/
 # pre_processing ones are unreferenced there (config uses the *_mtk blobs) but

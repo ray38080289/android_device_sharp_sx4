@@ -1,0 +1,13 @@
+#
+# SPDX-FileCopyrightText: The LineageOS Project
+# SPDX-License-Identifier: Apache-2.0
+#
+
+set_prop(vendor_init, vendor_mtk_telephony_addon_prop)
+
+# vendor.boostfwk.* defaults from vendor.prop
+set_prop(vendor_init, vendor_mtk_boostfwk_power_prop)
+
+# Camera thermal profiles (init.sx4.thermal.rc, on vendor.camera.perf)
+allow vendor_init { proc_thermal proc_mtkcooler }:dir search;
+allow vendor_init { proc_thermal proc_mtkcooler }:file w_file_perms;

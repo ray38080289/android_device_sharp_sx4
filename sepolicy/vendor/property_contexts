@@ -1,0 +1,16 @@
+#
+# SPDX-FileCopyrightText: The LineageOS Project
+# SPDX-License-Identifier: Apache-2.0
+#
+
+# Camera HAL (stock label is Sharp's own type; sepolicy_vndr's camera type fits)
+vendor.camera.                          u:object_r:vendor_mtk_camera_prop:s0
+
+# Fingerprint
+persist.vendor.fpc.                     u:object_r:vendor_fpc_prop:s0
+
+# Power HAL
+vendor.boostfwk.                        u:object_r:vendor_mtk_boostfwk_power_prop:s0
+
+# TEE storage proxies
+vendor.mtk.ufs.                         u:object_r:vendor_mtk_ufs_prop:s0

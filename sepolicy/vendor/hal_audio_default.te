@@ -1,0 +1,10 @@
+#
+# SPDX-FileCopyrightText: The LineageOS Project
+# SPDX-License-Identifier: Apache-2.0
+#
+
+# Smart amplifier calibration
+allow hal_audio_default nvcfg_file:dir search;
+allow hal_audio_default nvcfg_file:file r_file_perms;
+allow hal_audio_default sysfs_smartpa:dir search;
+allow hal_audio_default sysfs_smartpa:file rw_file_perms;

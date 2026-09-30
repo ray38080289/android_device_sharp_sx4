@@ -3,5 +3,6 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-# Telephony (not settable from vendor)
-ro.telephony.sim.count=2
+allow tee gsi_metadata_file:dir search;
+
+set_prop(tee, vendor_mtk_ufs_prop)

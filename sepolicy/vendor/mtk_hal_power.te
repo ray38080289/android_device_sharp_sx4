@@ -1,0 +1,10 @@
+#
+# SPDX-FileCopyrightText: The LineageOS Project
+# SPDX-License-Identifier: Apache-2.0
+#
+
+allow mtk_hal_power gpu_device:dir search;
+allow mtk_hal_power dri_device:chr_file rw_file_perms;
+allow mtk_hal_power sysfs_mmdvfs:file rw_file_perms;
+
+set_prop(mtk_hal_power, vendor_mtk_boostfwk_power_prop)

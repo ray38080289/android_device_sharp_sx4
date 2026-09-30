@@ -14,3 +14,8 @@
 /vendor/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.fpc   u:object_r:hal_fingerprint_default_exec:s0
 /vendor/bin/hw/android\.hardware\.dumpstate-service\.fih                      u:object_r:hal_dumpstate_default_exec:s0
 /vendor/bin/hw/vendor\.lineage\.livedisplay-service\.sx4                     u:object_r:hal_lineage_livedisplay_sx4_exec:s0
+
+/vendor/bin/hw/vendor\.fih\.fihloghidl@1\.0-service                         u:object_r:hal_fihloghidl_default_exec:s0
+
+# Loaded into surfaceflinger / zygote (stock label)
+/vendor/lib(64)?/libaal_sec\.so                                             u:object_r:same_process_hal_file:s0

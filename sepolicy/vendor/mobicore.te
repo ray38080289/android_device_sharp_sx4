@@ -3,5 +3,4 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-# Telephony (not settable from vendor)
-ro.telephony.sim.count=2
+allow mobicore mobicore_data_file:lnk_file read;

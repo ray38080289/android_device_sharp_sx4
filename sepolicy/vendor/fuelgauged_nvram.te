@@ -3,5 +3,4 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-# Telephony (not settable from vendor)
-ro.telephony.sim.count=2
+r_dir_file(fuelgauged_nvram, sysfs_dt_firmware_android)

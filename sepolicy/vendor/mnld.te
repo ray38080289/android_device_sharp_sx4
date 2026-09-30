@@ -1,0 +1,8 @@
+#
+# SPDX-FileCopyrightText: The LineageOS Project
+# SPDX-License-Identifier: Apache-2.0
+#
+
+# MPE (GNSS sensor fusion) uses the framework sensor service
+binder_call(mnld, servicemanager)
+allow mnld fwk_sensor_service:service_manager find;

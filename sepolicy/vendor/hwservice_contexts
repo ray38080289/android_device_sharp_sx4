@@ -1,0 +1,9 @@
+#
+# SPDX-FileCopyrightText: The LineageOS Project
+# SPDX-License-Identifier: Apache-2.0
+#
+
+com.fingerprints.extension::IFingerprintNavigation         u:object_r:hal_fpc_extension_hwservice:s0
+com.fingerprints.extension::IFingerprintSensorTest         u:object_r:hal_fpc_extension_hwservice:s0
+com.fingerprints.extension::IFpcFingerprintAuthenticator   u:object_r:hal_fpc_extension_hwservice:s0
+vendor.fih.fihloghidl::IFihLogHidl                    u:object_r:hal_fihloghidl_hwservice:s0

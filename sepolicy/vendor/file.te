@@ -4,3 +4,7 @@
 #
 
 type sysfs_charging_control, sysfs_type, fs_type;
+
+type sysfs_fpc, sysfs_type, fs_type;
+type sysfs_mmdvfs, sysfs_type, fs_type;
+type sysfs_smartpa, sysfs_type, fs_type;

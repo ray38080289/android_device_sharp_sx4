@@ -3,5 +3,4 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-# Telephony (not settable from vendor)
-ro.telephony.sim.count=2
+allow mtk_hal_camera fwk_sensor_service:service_manager find;

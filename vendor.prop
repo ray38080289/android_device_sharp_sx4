@@ -73,7 +73,6 @@ ro.vendor.mtk_omacp_support=1
 aaudio.mmap_exclusive_policy=2
 aaudio.mmap_policy=2
 apexd.config.dm_create.timeout=5000
-bluetooth.profile.sap.server.enabled=true
 camera.disable_zsl_mode=1
 dalvik.vm.heapgrowthlimit=256m
 dalvik.vm.heapmaxfree=16m

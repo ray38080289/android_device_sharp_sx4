@@ -7,4 +7,7 @@ add_hwservice(hal_fingerprint_default, hal_fpc_extension_hwservice)
 
 allow hal_fingerprint_default sysfs_fpc:file rw_file_perms;
 
+# CPU boost while capturing, as on stock
+allow hal_fingerprint_default sysfs_devices_system_cpu:file rw_file_perms;
+
 set_prop(hal_fingerprint_default, vendor_fpc_prop)

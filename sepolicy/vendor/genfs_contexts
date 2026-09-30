@@ -13,6 +13,7 @@ genfscon sysfs /devices/platform/11e01000.i2c/i2c-5/5-0034/mt6360-chg.2.auto/pow
 
 # Fingerprint
 genfscon sysfs /devices/platform/11019000.spi5/spi_master/spi5/spi5.0/clk_enable u:object_r:sysfs_fpc:s0
+genfscon sysfs /devices/platform/11019000.spi5/spi_master/spi5/spi5.0/wakeup_enable u:object_r:sysfs_fpc:s0
 
 # MM DVFS
 genfscon sysfs /module/mtk_mmdvfs/parameters/force_step u:object_r:sysfs_mmdvfs:s0

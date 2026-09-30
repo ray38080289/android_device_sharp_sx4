@@ -30,16 +30,9 @@ system_dlkm /system_dlkm ext4 ro wait,slotselect,avb,logical,first_stage_mount
 /dev/block/by-name/nvdata /mnt/vendor/nvdata ext4 noatime,nosuid,nodev,noauto_da_alloc,commit=1,nodelalloc wait,check,formattable
 /dev/block/by-name/nvcfg /mnt/vendor/nvcfg ext4 noatime,nosuid,nodev,noauto_da_alloc,commit=1,nodelalloc wait,check,formattable
 
-/dev/block/by-name/log_ext4 /mnt/vendor/log_ext4 ext4 noatime,nosuid,nodev,noauto_da_alloc,commit=1,nodelalloc wait,check,formattable
-/dev/block/by-name/durable /durable ext4 noatime,nosuid,nodev,noauto_da_alloc,commit=1,nodelalloc,noexec wait,check,formattable
-/dev/block/by-name/tombstones /tombstones ext4 noatime,nosuid,nodev,noauto_da_alloc,commit=1,nodelalloc,noexec wait,check,formattable
 
 /dev/block/by-name/kitting /kitting ext4 noatime,nosuid,nodev,noauto_da_alloc,commit=1,nodelalloc wait,check,notrim,nofail,first_stage_mount
 
-/dev/block/by-name/batterylog /mnt/vendor/batterylog ext4 noatime,nosuid,nodev,noauto_da_alloc,commit=1,nodelalloc wait,check,formattable
-/dev/block/by-name/sys_resetlog /mnt/vendor/sys_resetlog ext4 noatime,nosuid,nodev,noauto_da_alloc,commit=1,nodelalloc wait,check,formattable
-/dev/block/by-name/vdr_resetlog /mnt/vendor/vdr_resetlog ext4 noatime,nosuid,nodev,noauto_da_alloc,commit=1,nodelalloc wait,check,formattable
-/dev/block/by-name/sleeplog /mnt/vendor/sleeplog ext4 noatime,nosuid,nodev,noauto_da_alloc,commit=1,nodelalloc wait,check,formattable
 
 /dev/block/by-name/persist /mnt/vendor/persist ext4 noatime,nosuid,nodev,noauto_da_alloc,commit=1,nodelalloc wait,check,formattable
 

@@ -1126,7 +1126,6 @@ vendor/lib64/mt6833/libneuron_adapter_mgvi.so;SYMLINK=vendor/lib64/libneuron_ada
 
 # Vendor - Perf / Power
 vendor/bin/hw/vendor.mediatek.hardware.mtkpower-service.mediatek
-vendor/bin/hw/vendor.sharp.hardware.thermal@1.1-service
 vendor/bin/thermal
 vendor/bin/thermal_manager
 vendor/bin/thermalloadalgod
@@ -1140,7 +1139,6 @@ vendor/etc/init/init.thermal_manager.rc
 vendor/etc/init/init.thermalloadalgod.rc
 vendor/etc/init/vendor.mediatek.hardware.mtkpower@1.0-init.rc
 vendor/etc/init/vendor.mediatek.hardware.mtkpower@1.0-service.rc
-vendor/etc/init/vendor.sharp.hardware.thermal@1.1-service.rc
 vendor/etc/nnapi_powerhal.json
 vendor/etc/vintf/manifest/power-mediatek.xml
 vendor/lib/hw/thermal_hal.so
@@ -1160,8 +1158,6 @@ vendor/lib64/vendor.mediatek.hardware.mtkpower-V2-ndk.so
 vendor/lib64/vendor.mediatek.hardware.mtkpower-V3-ndk.so
 vendor/lib64/vendor.mediatek.hardware.mtkpower_applist-V3-ndk.so
 vendor/lib64/vendor.mediatek.hardware.power@2.0.so
-vendor/lib64/vendor.sharp.hardware.thermal@1.0.so
-vendor/lib64/vendor.sharp.hardware.thermal@1.1.so
 
 # Vendor - RIL / Telephony
 vendor/bin/modem_test
@@ -1200,10 +1196,8 @@ vendor/lib64/librgbwlightsensor.so
 vendor/lib64/libsensor_custom.so
 
 # Vendor - Wi-Fi
-vendor/bin/hw/vendor.sharp.hardware.wifi.config@1.0-service
 vendor/bin/wifi_test
 vendor/etc/init/init.wlan_drv.rc
-vendor/etc/init/vendor.sharp.hardware.wifi.config@1.0-service.rc
 vendor/etc/wifi/p2p_supplicant_overlay.conf
 vendor/etc/wifi/wpa_supplicant.conf
 vendor/etc/wifi/wpa_supplicant_overlay.conf
@@ -1218,7 +1212,6 @@ vendor/lib64/libwifinvram.so
 vendor/lib64/libwifinvramdata.so
 vendor/lib64/libwifitest.so
 vendor/lib64/meta_wifi_data.so
-vendor/lib64/vendor.sharp.hardware.wifi.config@1.0.so
 
 # Vendor - Firmware
 vendor/firmware/SX3_FT5446U_Conf_MultipleTest_V04_20230608.ini
@@ -1519,8 +1512,6 @@ vendor/etc/init/android.hardware.tetheroffload-V1-service.rc
 vendor/etc/init/android.hardware.usb-aidl-service.mediatek.rc
 vendor/etc/init/android.hardware.usb.gadget-aidl-service.mediatek.rc
 vendor/etc/init/atcid.rc
-vendor/etc/init/battlogd.rc
-vendor/etc/init/battlogd_poweroff.rc
 vendor/etc/init/bootperf.rc
 vendor/etc/init/dmc_core.rc
 vendor/etc/init/dumpstate-fih.rc
@@ -1547,7 +1538,6 @@ vendor/etc/init/hw/init.sx4.fs.rc
 vendor/etc/init/hw/init.sx4.key.rc
 vendor/etc/init/hw/init.sx4.smartpa.rc
 vendor/etc/init/hw/init.sx4.target.rc
-vendor/etc/init/hw/init.sx4.zram.rc
 vendor/etc/init/hw/init_connectivity.rc
 vendor/etc/init/hw/multi_init.rc
 vendor/etc/init/init.bt_drv.rc
@@ -1572,15 +1562,12 @@ vendor/etc/init/muxreport.rc
 vendor/etc/init/netdagent.rc
 vendor/etc/init/networksetting.rc
 vendor/etc/init/nvram_daemon.rc
-vendor/etc/init/resetlog.rc
 vendor/etc/init/v3avpud.rc
 vendor/etc/init/vendor.fih.fihloghidl@1.0-service.rc
-vendor/etc/init/vendor.fih.shlogd@1.0-service.rc
 vendor/etc/init/vendor.mediatek.hardware.mmagent-service.rc
 vendor/etc/init/vendor.mediatek.hardware.mms-service.rc
 vendor/etc/init/vendor.mediatek.hardware.nvram-sevice.rc
 vendor/etc/init/vendor.mediatek.hardware.pq_aidl-service.rc
-vendor/etc/init/vendor.sharp.hardware.selfcheck@1.0-service.rc
 vendor/etc/init/vgoservice.rc
 
 # Vendor - Misc
@@ -1621,8 +1608,6 @@ vendor/app/mcRegistry/e97c270ea5c44c58bcd3384a2fa2539e.tabin
 vendor/bin/AgentTest
 vendor/bin/atcid
 vendor/bin/autobt
-vendor/bin/battlogd
-vendor/bin/battlogd_poweroff
 vendor/bin/ccci_mdinit
 vendor/bin/ccci_rpcd
 vendor/bin/dconfig
@@ -1632,7 +1617,6 @@ vendor/bin/doeapp-memtester
 vendor/bin/doeapp-sat
 vendor/bin/dreport
 vendor/bin/dtc_vendor
-vendor/bin/enable.zram.writeback.sh
 vendor/bin/fpc_tee_test
 vendor/bin/frkp
 vendor/bin/fuelgauged
@@ -1648,17 +1632,13 @@ vendor/bin/hw/android.hardware.media.c2@1.2-mediatek
 vendor/bin/hw/android.hardware.media.c2@1.2-mediatek-64b
 vendor/bin/hw/mtkfusionrild
 vendor/bin/hw/tetheroffloadservice
-vendor/bin/hw/vendor.fih.fihloghidl@1.0-client
 vendor/bin/hw/vendor.fih.fihloghidl@1.0-service
-vendor/bin/hw/vendor.fih.shlogd@1.0-client
-vendor/bin/hw/vendor.fih.shlogd@1.0-service
 vendor/bin/hw/vendor.mediatek.hardware.mmagent-service
 vendor/bin/hw/vendor.mediatek.hardware.mmlpq@V1-service
 vendor/bin/hw/vendor.mediatek.hardware.mms-service
 vendor/bin/hw/vendor.mediatek.hardware.nvram-service
 vendor/bin/hw/vendor.mediatek.hardware.pq_aidl-service
 vendor/bin/hw/vendor.mediatek.hardware.vgoservice
-vendor/bin/hw/vendor.sharp.hardware.selfcheck@1.0-service
 vendor/bin/hw/vtservice_aidl
 vendor/bin/init.insmod.sh
 vendor/bin/init.pstore_blk.sh
@@ -1683,7 +1663,6 @@ vendor/bin/nfc_test
 vendor/bin/nvram_daemon
 vendor/bin/recordevent
 vendor/bin/replayevent
-vendor/bin/resetlog
 vendor/bin/stp_dump3
 vendor/bin/v3avpud
 vendor/bin/wmt_launcher
@@ -1771,7 +1750,6 @@ vendor/etc/vintf/manifest/manifest_media_c2_default.xml
 vendor/etc/vintf/manifest/mapper.mediatek.xml
 vendor/etc/vintf/manifest/mtk_lbs_service.xml
 vendor/etc/vintf/manifest/vendor.fih.fihloghidl@1.0-service.xml
-vendor/etc/vintf/manifest/vendor.fih.shlogd@1.0-service.xml
 vendor/etc/virtual-spn-conf-by-efgid1.xml
 vendor/etc/virtual-spn-conf-by-efpnn.xml
 vendor/etc/virtual-spn-conf-by-efspn.xml
@@ -2250,7 +2228,6 @@ vendor/lib64/soundfx/libagc2sw_mtk.so
 vendor/lib64/soundfx/libnssw_mtk.so
 vendor/lib64/soundfx/libpreprocessingaidl_mtk.so
 vendor/lib64/vendor.fih.fihloghidl@1.0.so
-vendor/lib64/vendor.fih.shlogd@1.0.so
 vendor/lib64/vendor.mediatek.framework.mtksf_ext-V2-ndk.so
 vendor/lib64/vendor.mediatek.hardware.apmonitor-V1-ndk.so
 vendor/lib64/vendor.mediatek.hardware.apmonitor@2.0.so
@@ -2292,7 +2269,6 @@ vendor/lib64/vendor.mediatek.hardware.nvram-V1-ndk.so
 vendor/lib64/vendor.mediatek.hardware.pq_aidl-V2-ndk.so
 vendor/lib64/vendor.mediatek.hardware.pq_aidl-V4-ndk.so
 vendor/lib64/vendor.mediatek.hardware.pq_aidl-V7-ndk.so
-vendor/lib64/vendor.sharp.hardware.selfcheck@1.0.so
 vendor/res/images/lcd_test_00.png
 vendor/res/images/lcd_test_01.png
 vendor/res/images/lcd_test_02.png

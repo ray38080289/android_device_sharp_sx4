@@ -25,43 +25,11 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.fih.shlogd</name>
-        <version>1.0</version>
-        <interface>
-            <name>ISHLogd</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
     <hal format="aidl" optional="true">
         <name>vendor.mediatek.hardware.mtkpower</name>
         <version>3</version>
         <interface>
             <name>IMtkPowerService</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.sharp.hardware.selfcheck</name>
-        <version>1.0</version>
-        <interface>
-            <name>ISelfCheck</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.sharp.hardware.thermal</name>
-        <version>1.1</version>
-        <interface>
-            <name>IThermal</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.sharp.hardware.wifi.config</name>
-        <version>1.0</version>
-        <interface>
-            <name>IWifiConfig</name>
             <instance>default</instance>
         </interface>
     </hal>

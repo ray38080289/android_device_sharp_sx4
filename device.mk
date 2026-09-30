@@ -59,6 +59,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/fstab.mt6833:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.mt6833 \
     $(LOCAL_PATH)/rootdir/etc/fstab.mt6833:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.mt6833
 
+# Init
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/etc/init.sx4.zram.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.sx4.zram.rc
+
 # IMS (same approach as device/xelex/Q25: stock ImsService + ims-patches,
 # two stock BOOT_JARs, minimal rebuilt MediaTek framework jars)
 $(call inherit-product, hardware/lineage/compat/frameworks/compat.mk)

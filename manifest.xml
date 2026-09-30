@@ -229,21 +229,6 @@
         <name>vendor.mediatek.hardware.videotelephony</name>
         <fqname>IVideoTelephony/default</fqname>
     </hal>
-    <hal format="hidl">
-        <name>vendor.sharp.hardware.selfcheck</name>
-        <transport>hwbinder</transport>
-        <fqname>@1.0::ISelfCheck/default</fqname>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.sharp.hardware.thermal</name>
-        <transport>hwbinder</transport>
-        <fqname>@1.1::IThermal/default</fqname>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.sharp.hardware.wifi.config</name>
-        <transport>hwbinder</transport>
-        <fqname>@1.0::IWifiConfig/default</fqname>
-    </hal>
     <hal format="aidl">
         <name>vendor.trustonic.tee</name>
         <fqname>ITee/default</fqname>

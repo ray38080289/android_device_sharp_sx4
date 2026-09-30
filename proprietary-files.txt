@@ -1018,6 +1018,9 @@ vendor/etc/vintf/manifest/android.hardware.gatekeeper-service.trustonic.xml
 vendor/etc/vintf/manifest/android.hardware.security.keymint-service.trustonic_norkp.xml
 vendor/etc/vintf/manifest/android.hardware.security.secureclock-service.trustonic.xml
 vendor/etc/vintf/manifest/android.hardware.security.sharedsecret-service.trustonic.xml
+# Widevine DRM (HAL, rc and VINTF fragment live inside the APEX)
+vendor/apex/com.google.android.widevine.nonupdatable.apex
+
 vendor/lib/liboemcrypto.so
 vendor/lib/libpqhdrmetaparser.so
 vendor/lib/liburee_meta_drmkeyinstall.so

@@ -1698,6 +1698,7 @@ vendor/etc/libese-nxp.conf
 vendor/etc/libnfc-nci.conf
 vendor/etc/libnfc-nxp.conf
 vendor/etc/libnfc-nxp_RF.conf
+vendor/etc/libnfc-nxp_RF.conf:vendor/libnfc-nxp_RF.conf
 vendor/etc/libnfc-nxp_oversea.conf
 vendor/etc/md/cacerts/ikev2/Entrust.net_Certification_Authority_2048.cer
 vendor/etc/md/cacerts/ikev2/GeoTrust_PCA_G3_Root.der

@@ -149,6 +149,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libAncDlmk
 
+# FM radio (MT6631; stock loads the driver but ships no app)
+PRODUCT_PACKAGES += \
+    FMRadio
+
 # Linker: the Widevine vendor APEX loads liboemcrypto.so from vendor (same as stock)
 PRODUCT_VENDOR_LINKER_CONFIG_FRAGMENTS += \
     $(LOCAL_PATH)/configs/linker.config.json

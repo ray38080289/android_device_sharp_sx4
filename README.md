@@ -103,11 +103,10 @@ kernel_device_modules-6.6/build_sx4.sh lineage /path/to/android/device/sharp/sx4
 
 Extract them from your own phone, running the stock TW firmware `00WW_3_20C000` in slot `_a`:
 
-1. Read back `super` and the firmware partitions in download mode (BROM), e.g. with
-   GeekFlashTool or [mtkclient](https://github.com/bkerler/mtkclient).
-2. Put them in one folder, without the slot suffix: `super.img`, `dpm.img`, `gz.img`, `lk.img`,
-   `mcupm.img`, `md1img.img`, `pi_img.img`, `scp.img`, `spmfw.img`, `sspm.img`, `tee.img`
-   (for example `lk_a.img` becomes `lk.img`).
+1. Take the full backup described in [Backup and recovery](#backup-and-recovery).
+2. Copy these into one folder, named without the slot suffix and with `.img`: `super.img`,
+   `dpm.img`, `gz.img`, `lk.img`, `mcupm.img`, `md1img.img`, `pi_img.img`, `scp.img`, `spmfw.img`,
+   `sspm.img`, `tee.img` (for example mtkclient's `lk_a.bin` becomes `lk.img`).
 3. Run:
 
 ```
@@ -128,12 +127,16 @@ m bacon
 
 ### 5. Install
 
-The bootloader must be unlocked. There is no OEM unlock: unlocking is done in download mode by
-rewriting the `seccfg` partition (`lock_state` 1 → 3, re-signed with the phone's hardware key). That
-is what GeekFlashTool's unlock does, and what mtkclient's `da seccfg unlock` does (mtkclient not
-tested on this phone). The phone then boots in the orange (unlocked) state.
+The bootloader must be unlocked. There is no OEM unlock: it is done in download mode by rewriting
+the `seccfg` partition (`lock_state` 1 → 3, re-signed with the phone's hardware key). With the
+phone in download mode (after the backup):
 
-The stock firmware refuses `adb reboot bootloader`, so:
+```
+python mtk.py da seccfg unlock
+```
+
+The phone then boots in the orange (unlocked) state. The stock firmware refuses
+`adb reboot bootloader`, so:
 
 ```
 adb reboot fastboot
@@ -151,11 +154,26 @@ and on the computer `adb sideload lineage-23.2-*-UNOFFICIAL-sx4.zip`.
 
 ### Backup and recovery
 
-Before flashing, read back **all** partitions in download mode and keep the files: they include
-the phone's IMEI and calibration data (`nvram`, `nvdata`, `proinfo`, ...), which cannot be
-recreated. Writing the backup back in download mode restores the stock firmware. A backup taken
-before unlocking also holds the locked `seccfg`: writing it back relocks the bootloader, so never
-write it back alone over a LineageOS install.
+Before unlocking or flashing anything, read back **all** partitions in download mode and keep the
+files: they include the phone's IMEI and calibration data (`nvram`, `nvdata`, `proinfo`, ...),
+which cannot be recreated. With [mtkclient](https://github.com/bkerler/mtkclient) and the phone in
+download mode:
+
+```
+python mtk.py rl backup --skip userdata
+```
+
+Writing it back restores the stock firmware:
+
+```
+python mtk.py wl backup
+```
+
+The backup holds the locked `seccfg`, so writing it back also relocks the bootloader; never write
+`seccfg` back alone over a LineageOS install.
+
+The mtkclient commands above are not tested on this phone; the port was developed with
+GeekFlashTool, which does the same backup, unlock and restore from a GUI (Chinese only).
 
 Entering download mode (phone powered off):
 

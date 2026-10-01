@@ -81,11 +81,10 @@ kernel_device_modules-6.6/build_sx4.sh lineage /path/to/android/device/sharp/sx4
 
 從你自己的手機抽取，slot `_a` 須為台版原廠韌體 `00WW_3_20C000`：
 
-1. 在下載模式（BROM）讀回 `super` 與各韌體分割區，例如用 GeekFlashTool 或
-   [mtkclient](https://github.com/bkerler/mtkclient)。
-2. 放進同一個資料夾，去掉 slot 字尾：`super.img`、`dpm.img`、`gz.img`、`lk.img`、
-   `mcupm.img`、`md1img.img`、`pi_img.img`、`scp.img`、`spmfw.img`、`sspm.img`、`tee.img`
-   （例如 `lk_a.img` 改名為 `lk.img`）。
+1. 先做好[備份與救援](#備份與救援)裡的完整備份。
+2. 把以下檔案複製到同一個資料夾，去掉 slot 字尾、副檔名改成 `.img`：`super.img`、`dpm.img`、
+   `gz.img`、`lk.img`、`mcupm.img`、`md1img.img`、`pi_img.img`、`scp.img`、`spmfw.img`、
+   `sspm.img`、`tee.img`（例如 mtkclient 的 `lk_a.bin` 改名為 `lk.img`）。
 3. 執行：
 
 ```
@@ -106,10 +105,13 @@ m bacon
 ### 5. 安裝
 
 Bootloader 必須已解鎖。這支手機沒有 OEM 解鎖選項，解鎖是在下載模式改寫 `seccfg` 分割區
-（`lock_state` 1 → 3，再用手機的硬體金鑰重新簽）。GeekFlashTool 的解鎖做的就是這件事，mtkclient 的
-`da seccfg unlock` 也是（mtkclient 未在這支手機上測過）。解鎖後開機會顯示 orange（已解鎖）狀態。
+（`lock_state` 1 → 3，再用手機的硬體金鑰重新簽）。做完備份後，手機在下載模式時執行：
 
-原廠系統會擋 `adb reboot bootloader`，所以：
+```
+python mtk.py da seccfg unlock
+```
+
+解鎖後開機會顯示 orange（已解鎖）狀態。原廠系統會擋 `adb reboot bootloader`，所以：
 
 ```
 adb reboot fastboot
@@ -127,9 +129,25 @@ fastboot reboot recovery
 
 ### 備份與救援
 
-刷機前，請在下載模式讀回**全部**分割區並保存好：其中包含這支手機的 IMEI 與校正資料（`nvram`、
-`nvdata`、`proinfo` 等），遺失就無法重建。在下載模式把備份寫回去，即可還原原廠韌體。解鎖前做的備份裡，
-`seccfg` 是上鎖狀態：寫回去會重新上鎖 bootloader，所以不要在裝著 LineageOS 的手機上單獨寫回它。
+解鎖或刷機之前，請在下載模式讀回**全部**分割區並保存好：其中包含這支手機的 IMEI 與校正資料
+（`nvram`、`nvdata`、`proinfo` 等），遺失就無法重建。用 [mtkclient](https://github.com/bkerler/mtkclient)，
+手機在下載模式時執行：
+
+```
+python mtk.py rl backup --skip userdata
+```
+
+寫回去即可還原原廠韌體：
+
+```
+python mtk.py wl backup
+```
+
+備份裡的 `seccfg` 是上鎖狀態，所以寫回備份也會重新上鎖 bootloader；不要在裝著 LineageOS 的手機上
+單獨寫回 `seccfg`。
+
+以上 mtkclient 指令未在這支手機上實測；移植過程用的是 GeekFlashTool，它的圖形介面（僅中文）可以做
+同樣的備份、解鎖與還原。
 
 進入下載模式（手機關機狀態）：
 

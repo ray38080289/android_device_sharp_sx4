@@ -23,6 +23,7 @@ genfscon sysfs /module/mtk_mmdvfs_debug/parameters/force_step u:object_r:sysfs_m
 genfscon sysfs /devices/platform/10026000.pwrap/10026000.pwrap:mt6359p/mt6359p-rtc/rtc/rtc0/alarmtimer.0.auto/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/10027000.spmi/spmi-0/0-03/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/11019000.spi5/spi_master/spi5/spi5.0/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/11018000.spi4/spi_master/spi4/spi4.0/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/11cb0000.i2c/i2c-3/3-0028/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/11e01000.i2c/i2c-5/5-0034/mt6360-chg.2.auto/power_supply/primary_chg/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/11e01000.i2c/i2c-5/5-0034/mt6360-chg.2.auto/wakeup u:object_r:sysfs_wakeup:s0

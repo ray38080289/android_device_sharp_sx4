@@ -4,3 +4,7 @@
 #
 
 allow mtk_hal_camera fwk_sensor_service:service_manager find;
+
+# FIH camera debug/tuning props (camera.hdr.enable, camera.eeprom.*, ...): never set, so
+# the lookups fall back to defaults either way
+dontaudit mtk_hal_camera default_prop:file read;

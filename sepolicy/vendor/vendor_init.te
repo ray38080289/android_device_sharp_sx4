@@ -11,3 +11,6 @@ set_prop(vendor_init, vendor_mtk_boostfwk_power_prop)
 # Camera thermal profiles (init.sx4.thermal.rc, on vendor.camera.perf)
 allow vendor_init { proc_thermal proc_mtkcooler }:dir search;
 allow vendor_init { proc_thermal proc_mtkcooler }:file w_file_perms;
+
+# Fingerprint big-core cpuset (init.fingerprint.fpc1560_sx4.rc)
+allow vendor_init cgroup:file getattr;

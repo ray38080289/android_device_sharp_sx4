@@ -45,6 +45,10 @@ lib_fixups: lib_fixups_user_type = {
 # ponytail: IMS fixups only. Everything else gets added as the first vendor
 # build and boot report what is missing.
 blob_fixups: blob_fixups_user_type = {
+    # Factory fingerprint test triggers: fpc_tee_test is not shipped, and vendor_init
+    # can't read the system.fqc.* trigger property
+    'vendor/etc/init/hw/init.fingerprint.fpc1560_sx4.rc': blob_fixup()
+        .regex_replace(r'(?s)\non property:vendor\.fqc\..*', '\n'),
     (
         'system_ext/priv-app/ImsService/ImsService.apk'
     ): blob_fixup()

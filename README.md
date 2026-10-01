@@ -180,7 +180,7 @@ Entering download mode (phone powered off):
 1. Hold **Power + Volume up** and count the vibrations. The right round is exactly **6
    vibrations followed by a clear pause**; if a 7th comes, keep holding for the next round.
 2. Right after the 6th vibration, also press **Volume down** (keep Volume up held).
-3. After about **2** more vibrations, release **Volume up**.
+3. After about **2** more vibrations, release **Volume up and Volume down**; keep holding **Power**.
 4. At the next pause in the vibrations, press **Volume up** once.
 
 Bugs: this is a proof of concept. Logs (`adb logcat`, `adb shell dmesg`) with issue reports are

@@ -17,14 +17,6 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.fih.fihloghidl</name>
-        <version>1.0</version>
-        <interface>
-            <name>IFihLogHidl</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
     <hal format="aidl" optional="true">
         <name>vendor.mediatek.hardware.mtkpower</name>
         <version>3</version>

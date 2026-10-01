@@ -3,22 +3,13 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-# FIH logging HAL; libmtk-ril and the audio HAL look it up
+# FIH logging HAL. The service is not shipped; libmtk-ril, libmtkmipc-ril and
+# the audio HAL still look it up with tryGetService() and carry on without it,
+# so keep the hwservice label and their lookup permission (no denials).
 hal_attribute(fihloghidl);
 
 type hal_fihloghidl_hwservice, hwservice_manager_type;
-binder_call(hal_fihloghidl_client, hal_fihloghidl_server)
-binder_call(hal_fihloghidl_server, hal_fihloghidl_client)
 hal_attribute_hwservice(hal_fihloghidl, hal_fihloghidl_hwservice)
-
-type hal_fihloghidl_default, domain;
-hal_server_domain(hal_fihloghidl_default, hal_fihloghidl)
-
-type hal_fihloghidl_default_exec, exec_type, vendor_file_type, file_type;
-init_daemon_domain(hal_fihloghidl_default)
-
-hwbinder_use(hal_fihloghidl_default)
-get_prop(hal_fihloghidl_default, hwservicemanager_prop)
 
 hal_client_domain(hal_audio_default, hal_fihloghidl)
 hal_client_domain(rild, hal_fihloghidl)

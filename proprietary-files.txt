@@ -1563,7 +1563,6 @@ vendor/etc/init/netdagent.rc
 vendor/etc/init/networksetting.rc
 vendor/etc/init/nvram_daemon.rc
 vendor/etc/init/v3avpud.rc
-vendor/etc/init/vendor.fih.fihloghidl@1.0-service.rc
 vendor/etc/init/vendor.mediatek.hardware.mmagent-service.rc
 vendor/etc/init/vendor.mediatek.hardware.mms-service.rc
 vendor/etc/init/vendor.mediatek.hardware.nvram-sevice.rc
@@ -1632,7 +1631,6 @@ vendor/bin/hw/android.hardware.media.c2@1.2-mediatek
 vendor/bin/hw/android.hardware.media.c2@1.2-mediatek-64b
 vendor/bin/hw/mtkfusionrild
 vendor/bin/hw/tetheroffloadservice
-vendor/bin/hw/vendor.fih.fihloghidl@1.0-service
 vendor/bin/hw/vendor.mediatek.hardware.mmagent-service
 vendor/bin/hw/vendor.mediatek.hardware.mmlpq@V1-service
 vendor/bin/hw/vendor.mediatek.hardware.mms-service
@@ -1750,7 +1748,6 @@ vendor/etc/vintf/manifest/manifest_apuware_utils_aidl.xml
 vendor/etc/vintf/manifest/manifest_media_c2_default.xml
 vendor/etc/vintf/manifest/mapper.mediatek.xml
 vendor/etc/vintf/manifest/mtk_lbs_service.xml
-vendor/etc/vintf/manifest/vendor.fih.fihloghidl@1.0-service.xml
 vendor/etc/virtual-spn-conf-by-efgid1.xml
 vendor/etc/virtual-spn-conf-by-efpnn.xml
 vendor/etc/virtual-spn-conf-by-efspn.xml

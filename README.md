@@ -177,7 +177,7 @@ no files needed up front, and the partitions it read back match a GeekFlashTool 
 unlocked); the port was developed with GeekFlashTool, which does the same backup, unlock and
 restore from a GUI (Chinese only).
 
-Entering download mode (phone powered off):
+Entering download mode (works whether the phone is on or off; no need to power it off first):
 
 1. Hold **Power + Volume up** and count the vibrations. The right round is exactly **6
    vibrations followed by a clear pause**; if a 7th comes, keep holding for the next round.

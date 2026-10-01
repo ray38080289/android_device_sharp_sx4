@@ -62,7 +62,7 @@ PRODUCT_COPY_FILES += \
 # Init
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/init.sx4.zram.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.sx4.zram.rc \
-    $(LOCAL_PATH)/rootdir/etc/init.sx4.usb-hal.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.sx4.usb-hal.rc
+    $(LOCAL_PATH)/rootdir/etc/init.sx4.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.sx4.rc
 
 # IMS (same approach as device/xelex/Q25: stock ImsService + ims-patches,
 # two stock BOOT_JARs, minimal rebuilt MediaTek framework jars)
@@ -256,6 +256,11 @@ PRODUCT_PACKAGES += \
     android.hardware.thermal-service.mediatek \
     android.hardware.usb-service.mediatek \
     android.hardware.vibrator-service.mediatek
+
+# Double tap to wake: the stock power HAL ignores the mode, Sx4TapToWake
+# writes the setting to the touch driver (fih_touch.gesture_enabled).
+PRODUCT_PACKAGES += \
+    Sx4TapToWake
 
 # Lights: only lcd-backlight exists (the stock HAL also probes RGB LEDs this
 # device does not have); brightness itself goes through the composer.

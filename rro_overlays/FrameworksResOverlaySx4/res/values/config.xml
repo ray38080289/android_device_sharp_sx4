@@ -333,4 +333,6 @@
         <item>mobile_vsim,2003,0,-1,60000,true</item>
     </string-array>
     <bool name="skip_restoring_network_selection">true</bool>
+    <!-- Double tap to wake (NT36528 wakeup gesture, see Sx4TapToWake) -->
+    <bool name="config_supportDoubleTapWake">true</bool>
 </resources>

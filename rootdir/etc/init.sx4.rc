@@ -3,6 +3,10 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+# Double tap to wake switch, written by Sx4TapToWake (system uid).
+on boot
+    chown system system /sys/module/fih_touch/parameters/gesture_enabled
+
 # Nodes the USB HAL (typec roles, musb mode) and the stock USB gadget HAL (UDC)
 # write as system. Same as the "on boot" section of the stock USB HAL rc.
 on boot

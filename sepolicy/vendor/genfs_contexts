@@ -33,3 +33,6 @@ genfscon sysfs /devices/platform/18002000.consys/wakeup u:object_r:sysfs_wakeup:
 genfscon sysfs /devices/platform/battery-manager/power_supply/battery/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/charger/power_supply/mtk-mst-hvdiv-chg/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/charger/power_supply/mtk-slv-hvdiv-chg/wakeup u:object_r:sysfs_wakeup:s0
+
+# Double tap to wake switch
+genfscon sysfs /module/fih_touch/parameters/gesture_enabled u:object_r:sysfs_tap_to_wake:s0

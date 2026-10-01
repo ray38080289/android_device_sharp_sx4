@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-# FM Radio (MT6631, same values as other MT6631 devices; no fake channels measured yet)
+# FM Radio (MT6631, same values as other MT6631 devices; scanning tested, no fake channel list needed)
 ro.fm.chip=0x6631
 ro.fm.band=1
 ro.fm.low_band=875

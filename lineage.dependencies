@@ -4,10 +4,6 @@
     "target_path": "device/mediatek/sepolicy_vndr"
   },
   {
-    "repository": "android_device_sharp_sx4-kernels",
-    "target_path": "device/sharp/sx4-kernels"
-  },
-  {
     "repository": "android_hardware_mediatek",
     "target_path": "hardware/mediatek"
   }

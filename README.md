@@ -45,3 +45,118 @@ variant (single rear camera, different memory options) and is not supported.
 ![SHARP AQUOS wish4](https://tw.sharp/sites/default/files/styles/resize_640x640/public/2024-06/wish4%20%E6%9C%88%E5%85%89%E7%99%BD_%E5%85%A8.png?itok=LH-5eHlJ "SHARP AQUOS wish4 (Moonlight White)")
 
 _Image: tw.sharp_
+
+## Building
+
+> **Unofficial and experimental.** Builds are `userdebug` and signed with test keys. With
+> `WITH_ADB_INSECURE=true` (used for debugging) adb runs as root without authorization. Keep a
+> full backup of the phone before flashing anything (see [Backup and recovery](#backup-and-recovery)).
+
+Everything is built from source or extracted from your own phone; no prebuilt kernel or
+proprietary files are distributed.
+
+### 1. Source
+
+```
+repo init -u https://github.com/LineageOS/android.git -b lineage-23.2 --git-lfs
+```
+
+Create `.repo/local_manifests/sx4.xml`:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote name="sx4" fetch="https://github.com/ray38080289" />
+
+  <project path="device/sharp/sx4" name="android_device_sharp_sx4" remote="sx4" revision="lineage-23.2" />
+  <project path="device/mediatek/sepolicy_vndr" name="LineageOS/android_device_mediatek_sepolicy_vndr" remote="github" />
+  <project path="hardware/mediatek" name="android_hardware_mediatek" remote="sx4" revision="sx4-iwlan" />
+
+  <remove-project name="LineageOS/android_frameworks_base" />
+  <project path="frameworks/base" name="android_frameworks_base" remote="sx4" revision="sx4-wakelock-frozen-leak" groups="pdk-cw-fs,pdk-fs,sysui-studio" />
+  <remove-project name="LineageOS/android_packages_apps_Aperture" />
+  <project path="packages/apps/Aperture" name="android_packages_apps_Aperture" remote="sx4" revision="sx4-video-quality" />
+  <remove-project name="LineageOS/android_vendor_apn" />
+  <project path="vendor/apn" name="android_vendor_apn" remote="sx4" revision="sx4-stock-apns" />
+</manifest>
+```
+
+```
+repo sync
+```
+
+### 2. Kernel
+
+The kernel is Google's certified GKI (android15-6.6, ci.android.com build 16457230). The vendor
+kernel modules and the device tree images (`mt6833.dtb`, `dtbo.img`) are built from
+[android_kernel_sharp_sx4-modules](https://github.com/ray38080289/android_kernel_sharp_sx4-modules),
+which also assembles `device/sharp/sx4-kernels`. It fetches the ACK source, clang and the GKI
+artifacts itself:
+
+```
+mkdir sx4kroot && cd sx4kroot
+git clone -b lineage-23.2 https://github.com/ray38080289/android_kernel_sharp_sx4-modules kernel_device_modules-6.6
+kernel_device_modules-6.6/build_sx4.sh lineage /path/to/android/device/sharp/sx4-kernels/6.6
+```
+
+### 3. Proprietary files
+
+Extract them from your own phone, running the stock TW firmware `00WW_3_20C000` in slot `_a`:
+
+1. Read back `super` and the firmware partitions in download mode (BROM), e.g. with
+   GeekFlashTool or [mtkclient](https://github.com/bkerler/mtkclient).
+2. Put them in one folder, without the slot suffix: `super.img`, `dpm.img`, `gz.img`, `lk.img`,
+   `mcupm.img`, `md1img.img`, `pi_img.img`, `scp.img`, `spmfw.img`, `sspm.img`, `tee.img`
+   (for example `lk_a.img` becomes `lk.img`).
+3. Run:
+
+```
+cd device/sharp/sx4
+./extract-files.py /path/to/folder
+```
+
+The camera HAL patches for 1080p60 (`camera_hal_patches.py`) are applied during extraction;
+every patched instruction is checked against the stock one first.
+
+### 4. Build
+
+```
+source build/envsetup.sh
+lunch lineage_sx4-bp4a-userdebug
+m bacon
+```
+
+### 5. Install
+
+The bootloader must be unlocked. The stock firmware refuses `adb reboot bootloader`, so:
+
+```
+adb reboot fastboot
+fastboot reboot bootloader
+fastboot flash boot_a boot.img
+fastboot flash init_boot_a init_boot.img
+fastboot flash vendor_boot_a vendor_boot.img
+fastboot flash dtbo_a dtbo.img
+fastboot flash vbmeta_a vbmeta.img
+fastboot reboot recovery
+```
+
+In the LineageOS recovery: **Factory reset → Format data**, then **Apply update → Apply from ADB**,
+and on the computer `adb sideload lineage-23.2-*-UNOFFICIAL-sx4.zip`.
+
+### Backup and recovery
+
+Before flashing, read back **all** partitions in download mode and keep the files: they include
+the phone's IMEI and calibration data (`nvram`, `nvdata`, `proinfo`, ...), which cannot be
+recreated. Writing the backup back in download mode restores the stock firmware.
+
+Entering download mode (phone powered off):
+
+1. Hold **Power + Volume up** and count the vibrations. The right round is exactly **6
+   vibrations followed by a clear pause**; if a 7th comes, keep holding for the next round.
+2. Right after the 6th vibration, also press **Volume down** (keep Volume up held).
+3. After about **2** more vibrations, release **Volume up**.
+4. At the next pause in the vibrations, press **Volume up** once.
+
+Bugs: this is a proof of concept. Logs (`adb logcat`, `adb shell dmesg`) with issue reports are
+welcome; so are fixes.

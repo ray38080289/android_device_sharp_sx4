@@ -518,9 +518,6 @@ vendor/lib64/vendor.mediatek.hardware.bluetooth.audio@2.1.so
 vendor/lib64/vendor.mediatek.hardware.bluetooth.audio@2.2.so
 
 # Vendor - Bluetooth
-vendor/bin/hw/android.hardware.bluetooth-service-mediatek
-vendor/etc/init/android.hardware.bluetooth-service-mediatek.rc
-vendor/etc/vintf/manifest/android.hardware.bluetooth-service-mediatek.xml
 vendor/firmware/BT_FW.cfg
 vendor/lib/libbluetooth_hw_test.so
 vendor/lib/libbluetooth_mtk.so
@@ -1302,7 +1299,6 @@ vendor/firmware/soc2_2_ram_mcu_1_1_hdr.bin
 vendor/firmware/soc2_2_ram_mcu_1a_1_hdr.bin
 
 # Vendor - Certificates
-vendor/bin/hw/android.hardware.usb-aidl-service.mediatekv1.0
 vendor/bin/hw/android.hardware.usb.gadget-aidl-service.mediatekv1.0
 vendor/etc/md/cacerts/ikev2/DigiCertGlobalRootCA.crt
 vendor/etc/md/cacerts/ikev2/DigiCertGlobalRootG2.crt
@@ -1509,12 +1505,10 @@ vendor/etc/security/cacerts_supl/lab/ef4b31e6.0
 vendor/etc/init/android.hardware.graphics.allocator-V2-service-mediatek.rc
 vendor/etc/init/android.hardware.media.c2-mediatek.rc
 vendor/etc/init/android.hardware.tetheroffload-V1-service.rc
-vendor/etc/init/android.hardware.usb-aidl-service.mediatek.rc
 vendor/etc/init/android.hardware.usb.gadget-aidl-service.mediatek.rc
 vendor/etc/init/atcid.rc
 vendor/etc/init/bootperf.rc
 vendor/etc/init/dmc_core.rc
-vendor/etc/init/dumpstate-fih.rc
 vendor/etc/init/fuelgauged_init.rc
 vendor/etc/init/fuelgauged_nvram_init.rc
 vendor/etc/init/gbe.rc
@@ -1551,7 +1545,6 @@ vendor/etc/init/init.touch.rc
 vendor/etc/init/init.vtservice_aidl.rc
 vendor/etc/init/init.wmt_drv.rc
 vendor/etc/init/ipsec_mon.rc
-vendor/etc/init/lights-mtk-default.rc
 vendor/etc/init/loghidlvendorservice.rc
 vendor/etc/init/md_monitor.rc
 vendor/etc/init/mtk_lbs_service.rc
@@ -1622,9 +1615,7 @@ vendor/bin/fuelgauged
 vendor/bin/fuelgauged_nvram
 vendor/bin/gbe
 vendor/bin/gsm0710muxd
-vendor/bin/hw/android.hardware.dumpstate-service.fih
 vendor/bin/hw/android.hardware.graphics.allocator-V2-service-mediatek
-vendor/bin/hw/android.hardware.lights-service.mediatek
 vendor/bin/hw/android.hardware.media.c2-mediatek
 vendor/bin/hw/android.hardware.media.c2-mediatek-64b
 vendor/bin/hw/android.hardware.media.c2@1.2-mediatek
@@ -1739,10 +1730,7 @@ vendor/etc/ueventd.rc
 vendor/etc/vendor-apns-conf.xml
 vendor/etc/vintf/manifest/CommandService.xml
 vendor/etc/vintf/manifest/android.hardware.tetheroffload-V1-service.xml
-vendor/etc/vintf/manifest/android.hardware.usb-aidl-service.mediatek.xml
 vendor/etc/vintf/manifest/android.hardware.usb.gadget-aidl-service.mediatek.xml
-vendor/etc/vintf/manifest/dumpstate-fih.xml
-vendor/etc/vintf/manifest/lights-mtk-default.xml
 vendor/etc/vintf/manifest/manifest_allocator.xml
 vendor/etc/vintf/manifest/manifest_apuware_utils_aidl.xml
 vendor/etc/vintf/manifest/manifest_media_c2_default.xml
@@ -1759,7 +1747,6 @@ vendor/lib/VP9SecureVdecCA.so
 vendor/lib/arm.graphics-V5-ndk.so
 vendor/lib/gc02m1b_mipi_mono_tuning.so
 vendor/lib/hw/android.hardware.graphics.allocator-V2-mediatek.so
-vendor/lib/hw/lights.mt6833.so
 vendor/lib/hw/mapper.mediatek.so
 vendor/lib/hw/sound_trigger.primary.default.so
 vendor/lib/hw/vendor.mediatek.hardware.nvram-impl.so
@@ -1893,7 +1880,6 @@ vendor/lib64/arm.graphics-V5-ndk.so
 vendor/lib64/gc02m1b_mipi_mono_IdxMgr.so
 vendor/lib64/gc02m1b_mipi_mono_tuning.so
 vendor/lib64/hw/android.hardware.graphics.allocator-V2-mediatek.so
-vendor/lib64/hw/lights.mt6833.so
 vendor/lib64/hw/mapper.mediatek.so
 vendor/lib64/hw/sound_trigger.primary.default.so
 vendor/lib64/hw/vendor.mediatek.hardware.nvram-impl.so
@@ -2244,7 +2230,6 @@ vendor/lib64/vendor.mediatek.hardware.mmagent@1.0.so
 vendor/lib64/vendor.mediatek.hardware.mmagent@1.1.so
 vendor/lib64/vendor.mediatek.hardware.mmlpq-V3-ndk.so
 vendor/lib64/vendor.mediatek.hardware.mms-V1-ndk.so
-vendor/lib64/vendor.mediatek.hardware.mtklight-V1-ndk.so
 vendor/lib64/vendor.mediatek.hardware.mtkradioex.assist-V2-ndk.so
 vendor/lib64/vendor.mediatek.hardware.mtkradioex.atci-V1-ndk.so
 vendor/lib64/vendor.mediatek.hardware.mtkradioex.cap-V1-ndk.so

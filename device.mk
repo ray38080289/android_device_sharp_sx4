@@ -61,7 +61,8 @@ PRODUCT_COPY_FILES += \
 
 # Init
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/init.sx4.zram.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.sx4.zram.rc
+    $(LOCAL_PATH)/rootdir/etc/init.sx4.zram.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.sx4.zram.rc \
+    $(LOCAL_PATH)/rootdir/etc/init.sx4.usb-hal.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.sx4.usb-hal.rc
 
 # IMS (same approach as device/xelex/Q25: stock ImsService + ims-patches,
 # two stock BOOT_JARs, minimal rebuilt MediaTek framework jars)
@@ -248,11 +249,18 @@ $(call soong_config_set,lineage_health,charging_control_charging_path,/sys/devic
 $(call soong_config_set,lineage_health,charging_control_charging_enabled,0 0)
 $(call soong_config_set,lineage_health,charging_control_charging_disabled,0 1)
 
-# hardware/mediatek HALs, same set as motorola/mt6768-common (also 6.6 GKI)
+# hardware/mediatek HALs (memtrack/thermal/vibrator: same set as motorola/mt6768-common, also 6.6 GKI)
 PRODUCT_PACKAGES += \
+    android.hardware.bluetooth-service.mediatek \
     android.hardware.memtrack-service.mediatek \
     android.hardware.thermal-service.mediatek \
+    android.hardware.usb-service.mediatek \
     android.hardware.vibrator-service.mediatek
+
+# Lights: only lcd-backlight exists (the stock HAL also probes RGB LEDs this
+# device does not have); brightness itself goes through the composer.
+PRODUCT_PACKAGES += \
+    android.hardware.light-service.lineage
 
 # thermal_info_config.json: from mt6768-common. Sensor zones and cooling
 # devices verified on the device (MT6833 GPU is devfreq-13000000.mali; a

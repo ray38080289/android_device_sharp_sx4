@@ -1108,19 +1108,6 @@ vendor/bin/hw/android.hardware.secure_element@1.2-service-mediatek
 vendor/etc/init/android.hardware.secure_element@1.2-service-mediatek.rc
 vendor/etc/init/hw/init.SNxxx.nfc.rc
 
-# Vendor - Neural networks
-vendor/bin/hw/android.hardware.neuralnetworks-shim-service-mtk-legacy
-vendor/etc/armnn_app.config
-vendor/etc/init/android.hardware.neuralnetworks-shim-service-mtk.rc
-vendor/etc/vintf/manifest/android.hardware.neuralnetworks-shim-service-mtk.xml
-vendor/lib/libarmnn_ndk.mtk.vndk.so
-vendor/lib/libtflite_mtk.so
-vendor/lib/mt6833/libneuron_adapter_mgvi.so;SYMLINK=vendor/lib/libneuron_adapter_mgvi.so;DISABLE_CHECKELF
-vendor/lib64/libarmnn_ndk.mtk.vndk.so
-vendor/lib64/libneuralnetworks_sl_driver_mtk_legacy_prebuilt.so
-vendor/lib64/libtflite_mtk.so
-vendor/lib64/mt6833/libneuron_adapter_mgvi.so;SYMLINK=vendor/lib64/libneuron_adapter_mgvi.so
-
 # Vendor - Perf / Power
 vendor/bin/hw/vendor.mediatek.hardware.mtkpower-service.mediatek
 vendor/bin/thermal
@@ -1157,7 +1144,6 @@ vendor/lib64/vendor.mediatek.hardware.mtkpower_applist-V3-ndk.so
 vendor/lib64/vendor.mediatek.hardware.power@2.0.so
 
 # Vendor - RIL / Telephony
-vendor/bin/modem_test
 vendor/bin/rcs_volte_stack
 vendor/bin/volte_clientapi_ua
 vendor/bin/volte_rcs_ua
@@ -1193,7 +1179,6 @@ vendor/lib64/librgbwlightsensor.so
 vendor/lib64/libsensor_custom.so
 
 # Vendor - Wi-Fi
-vendor/bin/wifi_test
 vendor/etc/init/init.wlan_drv.rc
 vendor/etc/wifi/p2p_supplicant_overlay.conf
 vendor/etc/wifi/wpa_supplicant.conf
@@ -1597,20 +1582,10 @@ vendor/app/mcRegistry/40188311faf343488db888ad39496f9a.tlbin
 vendor/app/mcRegistry/5020170115e016302017012521300000.drbin
 vendor/app/mcRegistry/5020170115e016302017012521300000.tlbin
 vendor/app/mcRegistry/e97c270ea5c44c58bcd3384a2fa2539e.tabin
-vendor/bin/AgentTest
 vendor/bin/atcid
-vendor/bin/autobt
 vendor/bin/ccci_mdinit
 vendor/bin/ccci_rpcd
-vendor/bin/dconfig
-vendor/bin/dexecutor
 vendor/bin/dmc_core
-vendor/bin/doeapp-memtester
-vendor/bin/doeapp-sat
-vendor/bin/dreport
-vendor/bin/dtc_vendor
-vendor/bin/fpc_tee_test
-vendor/bin/frkp
 vendor/bin/fuelgauged
 vendor/bin/fuelgauged_nvram
 vendor/bin/gbe
@@ -1632,7 +1607,6 @@ vendor/bin/hw/vtservice_aidl
 vendor/bin/init.insmod.sh
 vendor/bin/init.pstore_blk.sh
 vendor/bin/ipsec_mon
-vendor/bin/jpegtool
 vendor/bin/kmsetkey_ca
 vendor/bin/lib3a.ccu.ddr
 vendor/bin/lib3a.ccu.dm
@@ -1640,18 +1614,13 @@ vendor/bin/lib3a.ccu.pm
 vendor/bin/loghidlvendorservice
 vendor/bin/mcDriverDaemon
 vendor/bin/md_monitor
-vendor/bin/md_monitor_ctrl
-vendor/bin/mrdump_tool
 vendor/bin/mtk_lbs_service
 vendor/bin/mtk_plpath_utils_ota
 vendor/bin/mtk_storageproxyd
 vendor/bin/muxreport
 vendor/bin/netdagent
 vendor/bin/netdc
-vendor/bin/nfc_test
 vendor/bin/nvram_daemon
-vendor/bin/recordevent
-vendor/bin/replayevent
 vendor/bin/stp_dump3
 vendor/bin/v3avpud
 vendor/bin/wmt_launcher
@@ -1732,7 +1701,6 @@ vendor/etc/vintf/manifest/CommandService.xml
 vendor/etc/vintf/manifest/android.hardware.tetheroffload-V1-service.xml
 vendor/etc/vintf/manifest/android.hardware.usb.gadget-aidl-service.mediatek.xml
 vendor/etc/vintf/manifest/manifest_allocator.xml
-vendor/etc/vintf/manifest/manifest_apuware_utils_aidl.xml
 vendor/etc/vintf/manifest/manifest_media_c2_default.xml
 vendor/etc/vintf/manifest/mapper.mediatek.xml
 vendor/etc/vintf/manifest/mtk_lbs_service.xml
@@ -1872,7 +1840,6 @@ vendor/lib/vendor.mediatek.hardware.pq_aidl-V2-ndk.so
 vendor/lib/vendor.mediatek.hardware.pq_aidl-V7-ndk.so
 vendor/lib/vendor.mediatek.hardware.rcs-V1-ndk.so
 vendor/lib/vendor.mediatek.hardware.rcs@2.0.so
-vendor/lib64/APUWareUtilsAidlServer.so
 vendor/lib64/AVCSecureVdecCA.so
 vendor/lib64/HEVCSecureVdecCA.so
 vendor/lib64/VP9SecureVdecCA.so
@@ -2215,7 +2182,6 @@ vendor/lib64/vendor.fih.fihloghidl@1.0.so
 vendor/lib64/vendor.mediatek.framework.mtksf_ext-V2-ndk.so
 vendor/lib64/vendor.mediatek.hardware.apmonitor-V1-ndk.so
 vendor/lib64/vendor.mediatek.hardware.apmonitor@2.0.so
-vendor/lib64/vendor.mediatek.hardware.apuware.utils-V1-ndk.so
 vendor/lib64/vendor.mediatek.hardware.atci-V1-ndk.so
 vendor/lib64/vendor.mediatek.hardware.clientapi-V1-ndk.so
 vendor/lib64/vendor.mediatek.hardware.dmc-V1-ndk.so

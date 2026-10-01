@@ -7,7 +7,6 @@
 # usb.gadget-service.mediatek, stock ships usb.gadget-aidl-service.mediatekv1.0). Types
 # are sepolicy_vndr's; each one matches the label stock gives the same file.
 /vendor/bin/hw/android\.hardware\.media\.c2-mediatek                          u:object_r:mtk_hal_c2_exec:s0
-/vendor/bin/hw/android\.hardware\.neuralnetworks-shim-service-mtk-legacy      u:object_r:mtk_hal_neuralnetworks_exec:s0
 /vendor/bin/hw/android\.hardware\.usb\.gadget-aidl-service\.mediatekv1\.0     u:object_r:mtk_hal_usb_exec:s0
 /vendor/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.fpc   u:object_r:hal_fingerprint_default_exec:s0
 /vendor/bin/hw/vendor\.lineage\.livedisplay-service\.sx4                     u:object_r:hal_lineage_livedisplay_sx4_exec:s0

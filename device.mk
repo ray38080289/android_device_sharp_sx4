@@ -80,6 +80,7 @@ $(call inherit-product, hardware/mediatek/overlay/mssi.mk)
 # FrameworksResOverlaySx4 values are generated from the stock product overlays by
 # genoverlay23.py (navbar, cutout, brightness curves, power_profile, IMS flags...)
 PRODUCT_PACKAGES += \
+    ApertureOverlaySx4 \
     FrameworksResOverlaySx4 \
     SettingsOverlaySx4 \
     SettingsProviderOverlaySx4 \

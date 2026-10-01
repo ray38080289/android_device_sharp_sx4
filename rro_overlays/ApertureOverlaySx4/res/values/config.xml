@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <!-- Main camera: 60 fps only up to 1080p. The HAL's 60 fps sensor mode is 1080p and the
+         encoder cannot do 1440p60, but every mid-size stream advertises a 16.7 ms min frame
+         duration (see camera_hal_patches.py), so drop 60 fps from QHD. -->
+    <string-array name="config_additionalVideoConfigurations" translatable="false">
+        <item>0</item>
+        <item>qhd</item>
+        <item>-60</item>
+    </string-array>
+</resources>

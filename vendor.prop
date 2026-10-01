@@ -12,6 +12,11 @@ ro.board.api_level=30
 # Camera extensions (camera/extensions); stock sets this too
 ro.camerax.extensions.enabled=true
 
+# Fingerprint: the AIDL service loads fingerprint.sx4 (bridge to the stock FPC
+# HIDL HAL); the sensor sits in the power key.
+ro.hardware.fingerprint=sx4
+persist.vendor.fingerprint.type=side
+
 # Radio / IMS (from stock /vendor/build.prop)
 persist.vendor.ims_support=1
 persist.vendor.mims_support=2

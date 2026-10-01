@@ -124,9 +124,6 @@
     </string-array>
     <bool name="config_auto_attach_data_on_creation">false</bool>
     <bool name="config_automatic_brightness_available">true</bool>
-    <string-array name="config_biometric_sensors">
-        <item>0:2:15</item>
-    </string-array>
     <integer name="config_brightness_ramp_rate_fast">180</integer>
     <integer name="config_brightness_ramp_rate_slow">30</integer>
     <bool name="config_camera_sound_forced">true</bool>

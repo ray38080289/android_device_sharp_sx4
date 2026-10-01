@@ -268,3 +268,9 @@ PRODUCT_COPY_FILES += \
 
 # Inherit the proprietary files
 $(call inherit-product, vendor/sharp/sx4/sx4-vendor.mk)
+
+# Fingerprint: AIDL service from hardware/lineage on top of fingerprint.sx4,
+# which forwards to the stock FPC HIDL 2.1 service.
+PRODUCT_PACKAGES += \
+    android.hardware.biometrics.fingerprint-service.lineage \
+    fingerprint.sx4

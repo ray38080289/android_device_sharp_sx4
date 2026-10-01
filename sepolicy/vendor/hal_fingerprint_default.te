@@ -11,3 +11,8 @@ allow hal_fingerprint_default sysfs_fpc:file rw_file_perms;
 allow hal_fingerprint_default sysfs_devices_system_cpu:file rw_file_perms;
 
 set_prop(hal_fingerprint_default, vendor_fpc_prop)
+
+# AIDL service (hardware/lineage) bridging to the stock FPC HIDL service through
+# fingerprint.sx4: it runs in this domain and is a client of the HIDL HAL.
+binder_use(hal_fingerprint_default)
+hal_client_domain(hal_fingerprint_default, hal_fingerprint)

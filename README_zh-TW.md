@@ -130,8 +130,8 @@ fastboot reboot recovery
 ### 備份與救援
 
 解鎖或刷機之前，請在下載模式讀回**全部**分割區並保存好：其中包含這支手機的 IMEI 與校正資料
-（`nvram`、`nvdata`、`proinfo` 等），遺失就無法重建。用 [mtkclient](https://github.com/bkerler/mtkclient)，
-手機在下載模式時執行：
+（`nvram`、`nvdata`、`proinfo` 等），遺失就無法重建。用 [mtkclient](https://github.com/bkerler/mtkclient)
+（Windows 另需安裝 [UsbDk](https://github.com/daynix/UsbDk/releases)），手機在下載模式時執行：
 
 ```
 python mtk.py rl backup --skip userdata
@@ -146,8 +146,10 @@ python mtk.py wl backup
 備份裡的 `seccfg` 是上鎖狀態，所以寫回備份也會重新上鎖 bootloader；不要在裝著 LineageOS 的手機上
 單獨寫回 `seccfg`。
 
-以上 mtkclient 指令未在這支手機上實測；移植過程用的是 GeekFlashTool，它的圖形介面（僅中文）可以做
-同樣的備份、解鎖與還原。
+已在這支手機上實測：mtkclient 透過 UsbDk 可以打進 BROM、載入 DA、讀出分割表，事先不需要任何檔案；
+它讀回的分割區內容也和 GeekFlashTool 的備份一致。
+`da seccfg unlock` 與 `wl` 沒有實際執行（測試機已經解鎖）；移植過程用的是 GeekFlashTool，它的圖形
+介面（僅中文）可以做同樣的備份、解鎖與還原。
 
 進入下載模式（手機關機狀態）：
 

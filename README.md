@@ -156,8 +156,8 @@ and on the computer `adb sideload lineage-23.2-*-UNOFFICIAL-sx4.zip`.
 
 Before unlocking or flashing anything, read back **all** partitions in download mode and keep the
 files: they include the phone's IMEI and calibration data (`nvram`, `nvdata`, `proinfo`, ...),
-which cannot be recreated. With [mtkclient](https://github.com/bkerler/mtkclient) and the phone in
-download mode:
+which cannot be recreated. With [mtkclient](https://github.com/bkerler/mtkclient) (on Windows also
+install [UsbDk](https://github.com/daynix/UsbDk/releases)) and the phone in download mode:
 
 ```
 python mtk.py rl backup --skip userdata
@@ -172,8 +172,10 @@ python mtk.py wl backup
 The backup holds the locked `seccfg`, so writing it back also relocks the bootloader; never write
 `seccfg` back alone over a LineageOS install.
 
-The mtkclient commands above are not tested on this phone; the port was developed with
-GeekFlashTool, which does the same backup, unlock and restore from a GUI (Chinese only).
+Tested on this phone: over UsbDk, mtkclient's BROM exploit, DA and partition table read work with
+no files needed up front, and the partitions it read back match a GeekFlashTool backup. `da seccfg unlock` and `wl` were not run (the test phone was already
+unlocked); the port was developed with GeekFlashTool, which does the same backup, unlock and
+restore from a GUI (Chinese only).
 
 Entering download mode (phone powered off):
 

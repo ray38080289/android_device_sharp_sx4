@@ -62,7 +62,7 @@ PRODUCT_COPY_FILES += \
 # Init
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/init.sx4.zram.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.sx4.zram.rc \
-    $(LOCAL_PATH)/rootdir/etc/init.sx4.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.sx4.rc
+    $(LOCAL_PATH)/rootdir/etc/init.sx4.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.sx4.rc
 
 # IMS (same approach as device/xelex/Q25: stock ImsService + ims-patches,
 # two stock BOOT_JARs, minimal rebuilt MediaTek framework jars)

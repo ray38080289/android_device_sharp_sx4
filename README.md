@@ -128,7 +128,12 @@ m bacon
 
 ### 5. Install
 
-The bootloader must be unlocked. The stock firmware refuses `adb reboot bootloader`, so:
+The bootloader must be unlocked. There is no OEM unlock: unlocking is done in download mode by
+rewriting the `seccfg` partition (`lock_state` 1 → 3, re-signed with the phone's hardware key). That
+is what GeekFlashTool's unlock does, and what mtkclient's `da seccfg unlock` does (mtkclient not
+tested on this phone). The phone then boots in the orange (unlocked) state.
+
+The stock firmware refuses `adb reboot bootloader`, so:
 
 ```
 adb reboot fastboot
@@ -148,7 +153,9 @@ and on the computer `adb sideload lineage-23.2-*-UNOFFICIAL-sx4.zip`.
 
 Before flashing, read back **all** partitions in download mode and keep the files: they include
 the phone's IMEI and calibration data (`nvram`, `nvdata`, `proinfo`, ...), which cannot be
-recreated. Writing the backup back in download mode restores the stock firmware.
+recreated. Writing the backup back in download mode restores the stock firmware. A backup taken
+before unlocking also holds the locked `seccfg`: writing it back relocks the bootloader, so never
+write it back alone over a LineageOS install.
 
 Entering download mode (phone powered off):
 

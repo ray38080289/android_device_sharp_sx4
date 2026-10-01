@@ -105,7 +105,11 @@ m bacon
 
 ### 5. 安裝
 
-Bootloader 必須已解鎖。原廠系統會擋 `adb reboot bootloader`，所以：
+Bootloader 必須已解鎖。這支手機沒有 OEM 解鎖選項，解鎖是在下載模式改寫 `seccfg` 分割區
+（`lock_state` 1 → 3，再用手機的硬體金鑰重新簽）。GeekFlashTool 的解鎖做的就是這件事，mtkclient 的
+`da seccfg unlock` 也是（mtkclient 未在這支手機上測過）。解鎖後開機會顯示 orange（已解鎖）狀態。
+
+原廠系統會擋 `adb reboot bootloader`，所以：
 
 ```
 adb reboot fastboot
@@ -124,7 +128,8 @@ fastboot reboot recovery
 ### 備份與救援
 
 刷機前，請在下載模式讀回**全部**分割區並保存好：其中包含這支手機的 IMEI 與校正資料（`nvram`、
-`nvdata`、`proinfo` 等），遺失就無法重建。在下載模式把備份寫回去，即可還原原廠韌體。
+`nvdata`、`proinfo` 等），遺失就無法重建。在下載模式把備份寫回去，即可還原原廠韌體。解鎖前做的備份裡，
+`seccfg` 是上鎖狀態：寫回去會重新上鎖 bootloader，所以不要在裝著 LineageOS 的手機上單獨寫回它。
 
 進入下載模式（手機關機狀態）：
 

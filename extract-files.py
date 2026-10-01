@@ -49,6 +49,12 @@ blob_fixups: blob_fixups_user_type = {
     # can't read the system.fqc.* trigger property
     'vendor/etc/init/hw/init.fingerprint.fpc1560_sx4.rc': blob_fixup()
         .regex_replace(r'(?s)\non property:vendor\.fqc\..*', '\n'),
+    # PMIC engineer-mode debugfs nodes (EM app not shipped)
+    'vendor/etc/init/hw/init.mt6833.rc': blob_fixup()
+        .regex_replace(r'\n *#EM of MT636[02]\n( *chmod 0664 sys/kernel/debug/\S+\n)+', '\n'),
+    # mmstat trace instance: its only reader (aee) is not shipped
+    'vendor/etc/init/hw/init.project.rc': blob_fixup()
+        .regex_replace(r'# start mmstat\non property:sys\.boot_completed=1\n( +\S.*\n)+\n', ''),
     (
         'system_ext/priv-app/ImsService/ImsService.apk'
     ): blob_fixup()

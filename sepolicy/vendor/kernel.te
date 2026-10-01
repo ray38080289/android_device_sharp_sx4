@@ -1,0 +1,10 @@
+#
+# SPDX-FileCopyrightText: The LineageOS Project
+# SPDX-License-Identifier: Apache-2.0
+#
+
+# Display driver kworker adding mtkfb debugfs nodes
+allow kernel debugfs_fb:dir search;
+
+# krfcommd binding the RFCOMM L2CAP PSM; Android uses the userspace Bluetooth stack
+dontaudit kernel self:capability net_bind_service;

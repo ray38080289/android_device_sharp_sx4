@@ -1,0 +1,8 @@
+#
+# SPDX-FileCopyrightText: The LineageOS Project
+# SPDX-License-Identifier: Apache-2.0
+#
+
+# init.rc enabling bootreceiver error_report_end: the 6.6 eventfs create check fires,
+# the write itself succeeds
+dontaudit init debugfs_bootreceiver_tracing:dir write;

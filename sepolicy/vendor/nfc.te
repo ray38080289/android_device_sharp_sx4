@@ -1,0 +1,7 @@
+#
+# SPDX-FileCopyrightText: The LineageOS Project
+# SPDX-License-Identifier: Apache-2.0
+#
+
+# NFC service probing /data/vendor/nfc; NFC works without it
+dontaudit nfc nfc_data_vendor_file:dir search;

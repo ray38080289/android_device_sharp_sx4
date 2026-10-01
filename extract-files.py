@@ -54,7 +54,7 @@ blob_fixups: blob_fixups_user_type = {
         .regex_replace(r'\n *#EM of MT636[02]\n( *chmod 0664 sys/kernel/debug/\S+\n)+', '\n'),
     # mmstat trace instance: its only reader (aee) is not shipped
     'vendor/etc/init/hw/init.project.rc': blob_fixup()
-        .regex_replace(r'# start mmstat\non property:sys\.boot_completed=1\n( +\S.*\n)+\n', ''),
+        .regex_replace(r'# start mmstat\n(on property:sys\.boot_completed=1\n)( +\S*.*mmstat.*\n)+\n', r'\1'),
     (
         'system_ext/priv-app/ImsService/ImsService.apk'
     ): blob_fixup()
